@@ -1,0 +1,25 @@
+# robots.txt www.sizaif.com
+User-agent: * 
+Allow: /sitemap.xml
+Allow: /baidusitemap.xml
+Allow: /category-sitemap.xml
+Allow: /page-sitemap.xml
+Allow: /post-sitemap.xml
+Allow: /tag-sitemap.xml
+Allow: /posts/
+
+Disallow: /css
+Disallow: /js
+Disallow: /fonts
+Disallow: /img
+Disallow: /fonts
+Disallow: /page
+Disallow: /navigation
+Disallow: /tags
+Disallow: /archives
+
+Disallow: /404.html
+Disallow: /403.html
+Disallow: /update.log
+Disallow: /search.xml
+Disallow: /README.md
