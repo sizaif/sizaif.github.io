@@ -1019,9 +1019,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -1163,9 +1163,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -1444,9 +1444,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> Java </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> Xml </tag>
             
