@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>使用Wireshark抓包LTE RRC</title>
+      <link href="/posts/172b8d62/"/>
+      <url>/posts/172b8d62/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="使用Wireshark抓包LTE-RRC-包">使用Wireshark抓包LTE RRC 包</h2><div class="story post-story"><h3 id="实验环境说明">实验环境说明</h3><blockquote><p>一台<code>ubuntu20.04</code>虚拟机</p><p><code>Wireshark</code></p><p>基于<code>srsRAN</code> 模拟LTE环境</p><p>使用<code>ZeroMQ RF</code> 实现无RF硬件构建<code>srsUE</code>与<code>srsENB</code> 通信</p><p><img src="F:/sizaif/Dropbox/Master/Blog/blog/source/_posts/img_article/2021-10-07-%E4%BD%BF%E7%94%A8Wireshark%E6%8A%93%E5%8C%85LTE-RRC/20211007100349.png" class="lazyload" data-srcset="F:/sizaif/Dropbox/Master/Blog/blog/source/_posts/img_article/2021-10-07-%E4%BD%BF%E7%94%A8Wireshark%E6%8A%93%E5%8C%85LTE-RRC/20211007100349.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="srsran_architecture.png"></p><p>With srsRAN this can be achieved <strong>by replacing the radio link between eNodeB and UE with a mechanism</strong> that allows to exchange baseband IQ samples over an alternative transport. For this purpose, we’ve implemented a ZeroMQ-based RF driver that essentially acts as a transmit and receive pipe for exchanging IQ samples over TCP or IPC.</p></blockquote></div><h2 id="Wireshark配置">Wireshark配置</h2><div class="story post-story"><blockquote><p>在<code>srsran</code> doc 文档中由提到wireshark 抓取用法 <a href="https://docs.srsran.com/en/latest/general/source/5_troubleshooting.html#examining-pcaps-with-wireshark">Examining PCAPs with Wireshark</a></p></blockquote><p><strong>打开<code>DLT_User</code>选项</strong></p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007162848.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007162848.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007162846683"></p><p><strong>添加配置</strong></p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007163000.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007163000.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007162959662"></p><p>保存后即可开始抓取, 按照原文的意思设置此项后就可以抓取到LTE消息.</p><blockquote><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007163152.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007163152.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></blockquote><p>但在使用<code>ZeroMQ</code> 实现免RF中并没有出现上述的情况,</p><p>因为<code>ZeroMQ</code>的流量都是通过<code>localhost:2000</code> 和 <code>localhost:2001</code> 端口 实现流量交换</p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007163649.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007163649.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007163648723"></p><p>既然如此,尝试添加解析选项 <code>分析-&gt; 解码为</code>, 添加对应端口, 以及要解析成的协议,保存即可</p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007163740.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007163740.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007163739935"></p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007163924.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007163924.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007163923058"></p></div><h2 id="srsRAN配置">srsRAN配置</h2><div class="story post-story"><p>在<code>~/.config/srsran/</code> 目录下, 修改<code>epc.conf</code>, <code>enb.conf</code>,<code>ue.conf</code> 文件</p><p>在对应的<code>pcap</code> 选项下, 设置<code> enable = true</code></p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211007164214.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211007164214.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211007164212972"></p><p>当运行完成后,即可以用<code>wireshark</code> 打开 <code>/tmp/</code>目录下对应的pcap文件, 设置对应解析查看</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> LTE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LTE </tag>
+            
+            <tag> Wireshark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>提取3GPP TS中RRC ASN.1模式及编译</title>
       <link href="/posts/b0e1c2b9/"/>
       <url>/posts/b0e1c2b9/</url>
