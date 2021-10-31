@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Deep Packet Inspection,DPI</title>
+      <link href="/posts/ac712918/"/>
+      <url>/posts/ac712918/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是DPI">什么是DPI?</h2><div class="story post-story"><p>Deep packet inspection,DPI 也被叫做<code>信息提取</code>,<code>IX</code>或<code>完整的数据包检查</code>. 是一种网络数据包过滤. 深度数据包检查是对通过检查点传输的报文的数据部分和报文头进行评估，排除任何不符合协议、垃圾邮件、病毒、入侵和任何其他阻止报文通过检查点的定义标准。</p><p>深度数据包检查也用于确定特定数据包是否被重定向到另一个目的地。简而言之，深度数据包检查能够定位、检测、分类、阻塞或重路由具有特定代码或数据负载的包，这些包是传统包过滤无法检测、定位、分类、阻塞或重定向的。与普通数据包过滤不同，深度数据包检查不仅仅是检查包头</p></div><h2 id="DPI-怎样工作">DPI 怎样工作?</h2><div class="story post-story"><p>深度数据包检查是包过滤的一种形式，通常作为防火墙的功能执行。它被应用于开放系统互连的应用层。</p><p>深度数据包检查是对通过检查点的包的内容进行评估。使用由你、Internet服务提供商或网络或系统管理员分配的规则，深度包检查确定如何实时处理这些包</p><p>深度数据包检查能够检查这些包的内容，然后找出它来自哪里，比如发送它的服务或应用程序。此外，它还可以与过滤器一起工作，以便从在线服务(如Twitter或Facebook)或特定IP地址查找和重定向网络流量</p></div><h2 id="DPI-VS-传统包过滤">DPI VS 传统包过滤</h2><div class="story post-story"><p>传统的包过滤只读取每个包的头信息。这是一种基本方法，主要由于当时的技术限制而没有现代数据包过滤方法复杂。防火墙的处理能力非常低，不足以处理大量数据包。换句话说，传统的数据包过滤类似于阅读一本书的书名，而不知道或评估封面内的内容。</p><p>随着新技术的出现，深度数据包检测变得可行。随着它变得更加彻底和完整，它变得更像是拿起一本书，打开它，从头到尾阅读。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DPI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用Wireshark抓包LTE RRC</title>
       <link href="/posts/172b8d62/"/>
       <url>/posts/172b8d62/</url>
