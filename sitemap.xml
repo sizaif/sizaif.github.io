@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.sizaif.com/page/notes/</loc>
+    
+    <lastmod>2021-11-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/page/vscode_bak/</loc>
+    
+    <lastmod>2021-11-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/page/reg_bak/</loc>
+    
+    <lastmod>2021-11-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/posts/a30ed9b8/</loc>
     
     <lastmod>2021-11-06</lastmod>
@@ -12,13 +33,6 @@
     <loc>https://www.sizaif.com/posts/ac712918/</loc>
     
     <lastmod>2021-10-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/page/notes/</loc>
-    
-    <lastmod>2021-10-23</lastmod>
     
   </url>
   
@@ -499,14 +513,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/posts/fabe9f4f/</loc>
+    <loc>https://www.sizaif.com/posts/1c98e054/</loc>
     
     <lastmod>2021-08-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/posts/1c98e054/</loc>
+    <loc>https://www.sizaif.com/posts/fabe9f4f/</loc>
     
     <lastmod>2021-08-14</lastmod>
     
@@ -739,20 +753,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/C/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/tags/VS2019/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/tags/Js/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
@@ -761,6 +761,20 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/Layui/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/tags/C/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/tags/VS2019/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -851,14 +865,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc>
+    <loc>https://www.sizaif.com/tags/TSW2/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/TSW2/</loc>
+    <loc>https://www.sizaif.com/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -909,14 +923,14 @@
 
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%9D%82%E6%96%87/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%9D%82%E6%96%87/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -930,6 +944,13 @@
   </url>
   
   <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Python/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
@@ -937,14 +958,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -959,13 +980,6 @@
   
   <url>
     <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1014,14 +1028,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Springboot/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/JAXB/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/JAXB/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Springboot/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1043,6 +1057,13 @@
   
   <url>
     <loc>https://www.sizaif.com/navigation/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-11-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/VS2019/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1098,13 +1119,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/LTE/</loc>
-    <lastmod>2021-11-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SSL/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
@@ -1112,7 +1126,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/VS2019/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/LTE/</loc>
     <lastmod>2021-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
