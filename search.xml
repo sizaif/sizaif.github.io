@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>.Pcap包学习</title>
+      <link href="/posts/a30ed9b8/"/>
+      <url>/posts/a30ed9b8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="pacp-cap-文件结构">.pacp/.cap 文件结构</h2><div class="story post-story"><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211106090545.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211106090545.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述"></p><p><strong>1.Pcap Header</strong></p><blockquote><p>文件头，每一个pcap文件只有一个文件头，总共占24（B ）字节，以下是总共7个字段的含义。</p></blockquote><details green><summary> detail </summary>              <div class='content'>              <ul><li><p>Magic(4B)： 标记文件开始，并用来识别文件和字节顺序。值可以为<code>0xa1b2c3d4</code>或者<code>0xd4c3b2a1</code>，如果是<code>0xa1b2c3d4</code>表示是大端模式，按照原来的顺序一个字节一个字节的读，如果是<code>0xd4c3b2a1</code>表示小端模式，下<strong>面的字节都要交换顺序(从后往前)</strong>。现在的电脑大部分是小端模式。</p></li><li><p>Major(2B)： 当前文件的主要版本号，一般为0x0200</p></li><li><p>Minor(2B)： 当前文件的次要版本号，一般为0x0400</p></li><li><p>ThisZone(4B)： 当地的标准事件，如果用的是GMT则全零，一般全零</p></li><li><p>SigFigs(4B)： 时间戳的精度，一般为全零</p></li><li><p>SnapLen(4B)： 最大的存储长度，设置所抓获的数据包的最大长度，如果所有数据包都要抓获，将值设置为65535</p></li><li><p>LinkType(4B)： 链路类型。解析数据包首先要判断它的<code>LinkType</code>，所以这个值很重要。一般的值为1，即以太网<br>常用的LinkType（链路类型）：</p><ul><li><table><thead><tr><th>值</th><th>类型描述</th></tr></thead><tbody><tr><td>0</td><td>BSD loopback devices, except for later OpenBSD</td></tr><tr><td>1</td><td>Ethernet, and Linux loopback devices</td></tr><tr><td>6</td><td>802.5 Token Ring</td></tr><tr><td>7</td><td>ARCnet</td></tr><tr><td>8</td><td>SLIP</td></tr><tr><td>9</td><td>PPP</td></tr><tr><td>10</td><td>FDDI</td></tr><tr><td>100</td><td>LLC/SNAP-encapsulated ATM</td></tr><tr><td>101</td><td>“raw IP”, with no link</td></tr><tr><td>102</td><td>BSD/OS SLIP</td></tr><tr><td>103</td><td>BSD/OS PPP</td></tr><tr><td>104</td><td>Cisco HDLC</td></tr><tr><td>105</td><td>802.11</td></tr><tr><td>108</td><td>later OpenBSD loopback devices (with the AF_value in network byte order)</td></tr><tr><td>113</td><td>special Linux “cooked” capture</td></tr><tr><td>114</td><td>LocalTalk</td></tr></tbody></table></li></ul></li></ul>              </div>            </details><p>​<strong>2.Packet Header</strong></p><p>数据包头可以有多个，每个数据包头后面都跟着真正的数据包。以下是Packet Header的4个字段含义</p><ul><li>Timestamp(4B)： 时间戳高位，精确到seconds，这是Unix时间戳。捕获数据包的时间一般是根据这个值</li><li>Timestamp(4B)： 时间戳低位，能够精确到microseconds</li><li>Caplen(4B)： 当前数据区的长度，即抓取到的数据帧长度，由此可以得到下一个数据帧的位置。</li><li>Len(4B)： 离线数据长度，网路中实际数据帧的长度，一般不大于Caplen，多数情况下和Caplen值一样</li></ul><p><strong>3.Packet Data</strong></p><p>Packet是链路层的数据帧，长度就是Packet Header中定义的Caplen值，<u>所以每个Packet Header后面都跟着Caplen长度的Packet Data</u>。也就是说pcap文件并没有规定捕获的数据帧之间有什么间隔字符串。<u>Packet数据帧部分的格式就是标准的网络协议格式了</u>。</p><p>eg：<br>下图为16进制pcap文件：</p><p><img src="https://gitee.com/sizaif/images/raw/master/img/20211106093845.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20211106093845.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="在这里插入图片描述"></p><blockquote><p><strong>备注：</strong></p><p>红色部分：Pcap Header</p><p>蓝色部分：Packet Header</p><p>PcapHeader</p><p>Magic(4B)： D4 C3 B2 A1 表示小端模式，后面的字节从后往前读；</p><p>Major(2B)： 02 00，计算机读的是00 02；</p><p>Minor(2B)： 04 00，计算机读的是00 04；</p><p>ThisZone(4B)： 00 00 00 00，全零；</p><p>SigFigs(4B)： 00 00 00 00，全零；</p><p>SnapLen(4B)： FF FF 00 00, 计算机读的是：00 00 FF FF，所以是2^16-1=65535</p><p>LinkType(4B)： 01 00 00 00, 计算机读的是：00 00 00 01，表示是以太网类型</p><p>Packet Header</p><p>Timestamp(4B)： CA 4D A4 5C，计算机读的是：5C A4 4D CA，十进制：1554271690，日期为：2019-04-03 14:08:10；</p><p>Timestamp(4B)： 4F 2A 08 00，计算机读的是：00 08 2A 4F，十进制：535119，代表535119ms；</p><p>Caplen(4B)： BA 1C 00 00, 计算机读的是：00 00 1C BA，十进制：7354，代表后面的7354个字节为一个数据帧，之后又是一个新的PacketHeader，如此循环；</p><p>Len(4B)： BA 1C 00 00，和Caplen相同</p></blockquote></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+          <category> Wireshark </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pcap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deep Packet Inspection,DPI</title>
       <link href="/posts/ac712918/"/>
       <url>/posts/ac712918/</url>
