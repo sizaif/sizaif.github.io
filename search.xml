@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>LTE(4G)–USIM基础</title>
+      <link href="/posts/a71e591c/"/>
+      <url>/posts/a71e591c/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2021/11/13/Ny89ukcrYDm61vS.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/11/13/Ny89ukcrYDm61vS.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><h2 id="USIM是在身份验证中的作用">USIM是在身份验证中的作用</h2><div class="story post-story"><p>当您启动手机时，其中的基带模块会与卡上的 USIM 应用程序进行通信。</p><p>当需要向网络进行身份验证并验证网络本身时，基带模块将提供的质询信息从网络发送到 USIM，USIM 执行加密以生成对网络发出的身份验证质询的响应，然后 USIM问题是它自己对网络的挑战。</p></div><h2 id="What’s-Inside">What’s Inside?</h2><div class="story post-story"><h3 id="所有GSM用于传统SIM应用程序的GSM内容">所有GSM用于传统SIM应用程序的GSM内容</h3><p>一般来说USIM也有能力在GSM网络中作为SIMs运行，毕竟它只是一个不同的软件堆栈。我们在这里不涉及GSM SIM。</p><h3 id="ICCID">ICCID</h3><p>由于USIM只是在通用集成电路卡上运行的应用程序，因此它得到了ICCID或通用集成电路卡ID。通常这是卡本身上印有的长条形码/数量。</p><p>网络一般不关心这个值，但运营商可能会把它用于物流，如发货卡。</p><h3 id="PIN-PUK">PIN &amp; PUK</h3><p>pin和PUKs是解锁卡的密码。如果你的PIN错了太多次，你需要更长的PUK来解锁它。</p><p>这些字段可以写入(在验证到卡片时)，但不能直接读取，只有尝试。(你可以尝试一个密码，但你不能看到它的设置)。</p><p>正如我们之前提到的，终端会询问卡是否正确，但终端也不知道密码。</p><h3 id="IMSI">IMSI</h3><p>每个订阅者都有一个IMSI，是一个国际移动用户标识。</p><p>IMSIS是分层的，从3位数移动国家/地区代码MCC开始，然后移动网络代码(MNC)(2/3位)以及最终是移动订阅识别号(MSIN)，由操作员分配给用户的唯一号码网络。</p><p>这意味着虽然两个订阅者理论上可以具有相同的MSIN，但它们不会分享相同的MNC和MCC，因此ISMI仍然是唯一的。</p><p>除非订户更改运营商时，IMSI永远不会发生变化，除非新的操作员发出新的USIM卡，具有不同的IMSI（不同的MNC）。</p><p>MSIN与电话号码/MSISDN号码不同，但IMSI通常具有网络相关联的MSISDN。这允许您在不更改USIM / SIM的情况下移植/更改MSISDN号码。</p><h3 id="K-–-Subscriber-Key">K – Subscriber Key</h3><p>仅针对订户和认证中心(AUC/HSS)已知的订户的秘密密钥。</p><p>所有身份验证都依赖于仅为USIM和AUC/HHS已知的单个密钥(k)的原则。</p><h3 id="OP-–-Operator-Code">OP – Operator Code</h3><p>操作员代码 - 来自单个操作员的所有SIM卡相同。</p><p>与K结合使用作为一些身份验证/授权加密生成的输入。</p><p>由于操作员代码对网络中的所有订阅者都是通用的，因为要恢复此密钥可能会导致安全问题，因此通常使用OPC。</p><h3 id="OPc-–-Operator-Code-Derived">OPc – Operator Code (Derived)</h3><p>当USIM用K键写入USIM时，可以预先计算Operator代码，而不是给出每个USIM的操作员代码。</p><p>这意味着OP不存储在USIM上。</p><p><code>OPc=Encypt-Algo(OP,Key)</code></p><h3 id="PLMN-Public-Land-Mobile-Network">PLMN (Public Land Mobile Network)</h3><p>PLMN是MCC和MNC的组合，用于识别运营商的无线接入网(RAN)。</p><p>虽然在大多数USIMs中没有特定的PLMN字段，但值得理解的是，有几个字段需要PLMN。</p><h3 id="HPLMNwAcT-HPLMN-selector-with-Access-Technology">HPLMNwAcT (HPLMN selector with Access Technology)</h3><p>按优先级顺序包含指定接入技术的Home-PLMN编码</p><p>这允许USIM计算出哪个PLMN附加到哪个访问技术(RAN)，例如，如果操作员的PLMN是50599，我们可以</p><ul><li>50599 E-UTRAN</li><li>50599 UTRAN</li><li></li></ul><p>尝试4G，如果失败了就使用3G。</p><p>在运营商可能合作共享不同地区的网络的情况下，可以先设置运营商的PLMN，然后再设置合作运营商的PLMN。</p><h3 id="OPLMNwACT-Operator-controlled-PLMN-selector-with-Access-Technology">OPLMNwACT (Operator controlled PLMN selector with Access Technology)</h3><p>这是运营商与优先顺序和访问技术有关漫游协议的PLMNS列表。</p><p>操作员可以漫游到运营商X，但仅允许UTRAN访问，而不是E-TRAN。</p><h3 id="FEHPLMN-Equivalent-HPLMN">FEHPLMN (Equivalent HPLMN)</h3><p>用于定义等效的HPMN，例如，如果两个载波合并并仍有两个PLMN。</p><h3 id="FPLMN-Forbidden-PLMN-list">FPLMN (Forbidden PLMN list)</h3><p>用户不能浏览的plmn列表。</p><h3 id="HPPLMN-Higher-Priority-PLMN-search-period">HPPLMN (Higher Priority PLMN search period)</h3><p>在HPLMNWACT列表中的每个PLMN / Access技术之间花费多长时间。</p><h3 id="ACC-Access-Control-Class">ACC (Access Control Class)</h3><p>ACC允许0-15的值，并确定订户的访问控制类。</p><p>在英国，ACC值用于限制紧急情况期间对手机网络的平民访问。</p><p>普通用户在0 - 9.较高的优先级用户分配12-14中的普通订阅者。</p><p>在紧急情况下，禁用范围0 - 9中的某些或所有访问类。</p><p>这意味着可以将服务截止到具有0-9的ACC值的公众，但第一个响应者和紧急服务等人将具有更高的ACC值，网络将允许它们附加。</p><h3 id="AD-Administrative-Data">AD (Administrative Data)</h3><p>与ACC字段一样，AD字段允许运营商在没有与网络附加的有效支付订阅者的情况下驱动测试网络</p><p>The defined levels are:</p><ul><li>'00’正常运行。</li><li>'80’型批准操作。</li><li>'01’正常运行+特定设施。</li><li>'81’型批准操作+特定设施。</li><li>'02’维护（离线）。</li><li>'04’单元测试操作。</li></ul><h3 id="GID-1-2-–-Group-Identifier">GID 1 / 2 – Group Identifier</h3><p>两个组标识符字段，允许操作符为特定应用程序标识一组USIMs。</p><h3 id="SPN-Service-Provider-Name">SPN (Service Provider Name)</h3><p>SPN是包含网络的人类可读名称的可选字段。</p><p>SPN允许MVNOS以手机上的操作员提供自己的USIM。</p><h3 id="ECC-Emergency-Call-Codes">ECC (Emergency Call Codes)</h3><p>多达6位数的代码长时间允许从主屏幕/紧急/不经过身份验证等拨号。</p><h3 id="MSISDN">MSISDN</h3><p>移动台国际订户目录号码。E.164格式的用户的电话号码。</p><p>这是可选的，因为移植可能会覆盖此操作，因此它并不总是匹配。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> LTE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LTE </tag>
+            
+            <tag> USIM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>七夕-杂谈</title>
+      <link href="/posts/52b019f9/"/>
+      <url>/posts/52b019f9/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></p><p><strong>送给每一对甜甜蜜蜜的你们!</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>.Pcap包学习</title>
       <link href="/posts/a30ed9b8/"/>
       <url>/posts/a30ed9b8/</url>
@@ -272,31 +326,6 @@
         <tags>
             
             <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>七夕-杂谈</title>
-      <link href="/posts/52b019f9/"/>
-      <url>/posts/52b019f9/</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></p><p><strong>送给每一对甜甜蜜蜜的你们!</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 杂谈 </tag>
             
         </tags>
       
