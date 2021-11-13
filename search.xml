@@ -13,9 +13,9 @@
       
       <categories>
           
-          <category> LTE </category>
+          <category> 技术向 </category>
           
-          <category> -技术向 </category>
+          <category> LTE </category>
           
       </categories>
       
@@ -1511,9 +1511,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Docker </tag>
             
             <tag> Mysql </tag>
             
@@ -1796,9 +1796,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> Docker </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
