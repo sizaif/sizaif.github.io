@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>3GPP 5G 常用协议规范下载整理</title>
+      <link href="/posts/be65a0a1/"/>
+      <url>/posts/be65a0a1/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2021/11/13/LM7ZfywvFQ4NDVG.png" class="lazyload" data-srcset="https://i.loli.net/2021/11/13/LM7ZfywvFQ4NDVG.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211113102023734"></p><h2 id="常用协议标准">常用协议标准</h2><div class="story post-story"><h3 id="系统架构">系统架构</h3><table><thead><tr><th>编号</th><th>协议</th><th>全称</th><th>描述</th><th>下载地址</th></tr></thead><tbody><tr><td>1</td><td>RAN Architecture</td><td>NG-RAN Architecture description</td><td>系统架构</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.473">TS 38.473</a></td></tr><tr><td>2</td><td>Overall</td><td>NR and NG-RAN Overall Description</td><td>NR and NG-RAN 总体技术要求</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.300">TS 38.300</a></td></tr><tr><td>3</td><td>5GS</td><td>NG-RAN Architecture description</td><td>系统架构</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/23_series/23.501">TS 23.501</a></td></tr><tr><td>4</td><td>5GC</td><td>Procedures for the 5G System (5GS)</td><td>系统架构</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/23_series/23.502">TS 23.502</a></td></tr></tbody></table><h3 id="无线侧（RAN-NR）">无线侧（RAN/NR）</h3><table><thead><tr><th>编号</th><th>协议</th><th>全称</th><th>描述</th><th>下载地址</th></tr></thead><tbody><tr><td>1</td><td>RRC</td><td>Radio Resource Control</td><td>无线资源控制</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.331">TS 38.331</a></td></tr><tr><td>2</td><td>SDAP</td><td>Service Data Adaptation Protocol</td><td>服务数据适配协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/37_series/37.324">TS 37.324</a></td></tr><tr><td>3</td><td>PDCP</td><td>Packet Data Convergence Protocol</td><td>分组数据汇聚协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.323">TS 38.323</a></td></tr><tr><td>4</td><td>RLC</td><td>Radio Link Control</td><td>无线链路层控制协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.322">TS 38.322</a></td></tr><tr><td>5</td><td>MAC</td><td>Media Access Control</td><td>媒体接入控制协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.321">TS 38.321</a></td></tr><tr><td>6</td><td>F1Ap</td><td>F1 Application Protocol</td><td>F1 应用程序协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.401">TS 38.401</a></td></tr><tr><td>7</td><td>XnAp</td><td>Xn Application Protocol</td><td>Xn 应用程序协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.423">TS 38.423</a></td></tr></tbody></table><h3 id="核心网（CN-5GC）">核心网（CN/5GC）</h3><table><thead><tr><th>编号</th><th>协议</th><th>全程</th><th>描述</th><th>下载地址</th></tr></thead><tbody><tr><td>1</td><td>NgAp</td><td>NG Application Protocol</td><td>NG 应用程序协议</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/38_series/38.413">TS 38.413</a></td></tr><tr><td>2</td><td>NAS</td><td>Non-Access-Stratum</td><td>非接入层</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/24_series/24.501/">TS 24.501</a></td></tr><tr><td>3</td><td>PCF</td><td>Policy Control Function</td><td>策略控制功能</td><td><a href="https://www.3gpp.org/ftp/Specs/archive/29_series/29.507/">TS 29.507</a></td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> LTE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LTE </tag>
+            
+            <tag> 5G </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LTE(4G)–USIM基础</title>
       <link href="/posts/a71e591c/"/>
       <url>/posts/a71e591c/</url>
