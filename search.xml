@@ -13,9 +13,9 @@
       
       <categories>
           
-          <category> 技术向 </category>
-          
           <category> LTE </category>
+          
+          <category> -技术向 </category>
           
       </categories>
       
@@ -54,31 +54,6 @@
             <tag> LTE </tag>
             
             <tag> USIM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>七夕-杂谈</title>
-      <link href="/posts/52b019f9/"/>
-      <url>/posts/52b019f9/</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></p><p><strong>送给每一对甜甜蜜蜜的你们!</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 杂谈 </tag>
             
         </tags>
       
@@ -355,6 +330,31 @@
         <tags>
             
             <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>七夕-杂谈</title>
+      <link href="/posts/52b019f9/"/>
+      <url>/posts/52b019f9/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" class="lazyload" data-srcset="https://gitee.com/sizaif/images/raw/master/img/20210814173546.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></p><p><strong>送给每一对甜甜蜜蜜的你们!</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
             
         </tags>
       
@@ -1511,9 +1511,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -1796,9 +1796,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
