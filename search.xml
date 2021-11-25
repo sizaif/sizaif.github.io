@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Python 处理Soap-Post方法</title>
+      <link href="/posts/d61d731c/"/>
+      <url>/posts/d61d731c/</url>
+      
+        <content type="html"><![CDATA[<h2 id="导语">导语</h2><div class="story post-story"><p>最近项目用到处理soap接口协议，使用post方法发送数据</p><p>在这个地方停留许久，故将解决方法记录下来</p></div><h2 id="soap">soap</h2><div class="story post-story"><p>soap 依赖于<code>XML</code>文件</p><p>首先要处理XML文件</p><p>python中有<code>xmltodict,dicttoxml</code>两个库可以使用</p></div><h2 id="使用方法">使用方法</h2><div class="story post-story"><p>两种解决方法：</p><p>一种是 <code>requests</code>方法</p><p>另一种是使用<code>suds</code>库</p><p>两种方法可参考：</p><p><a href="https://gist.github.com/toast38coza/17e2ad6c2cfa2e96b0b1">Call a SOAP Service with plain old requests</a></p><p><a href="https://gist.github.com/toast38coza/c7342fcc1dd5762d4c02">Calling a SOAP WebService with Python Suds</a></p><pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># Call a SOAP Service with plain old requests</span><span class="token keyword">import</span> requestsurl<span class="token operator">=</span><span class="token string">"http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"</span><span class="token comment">#headers = &#123;'content-type': 'application/soap+xml'&#125;</span>headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'content-type'</span><span class="token punctuation">:</span> <span class="token string">'text/xml'</span><span class="token punctuation">&#125;</span>body <span class="token operator">=</span> <span class="token triple-quoted-string string">"""&lt;?xml version="1.0" encoding="UTF-8"?> &lt;SOAP-ENV:Envelope xmlns:ns0="http://ws.cdyne.com/WeatherWS/" xmlns:ns1="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"> &lt;SOAP-ENV:Header/>   &lt;ns1:Body>&lt;ns0:GetWeatherInformation/>&lt;/ns1:Body> &lt;/SOAP-ENV:Envelope>"""</span>response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>body<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token keyword">print</span> response<span class="token punctuation">.</span>content<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>华丽的分割线<span class="token number">1</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token comment"># Calling a SOAP WebService with Python Suds</span><span class="token keyword">from</span> suds<span class="token punctuation">.</span>client <span class="token keyword">import</span> Clienturl<span class="token operator">=</span><span class="token string">"http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL"</span>client <span class="token operator">=</span> Client<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token keyword">print</span> client <span class="token comment">## shows the details of this service</span>result <span class="token operator">=</span> client<span class="token punctuation">.</span>service<span class="token punctuation">.</span>GetWeatherInformation<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span> result <span class="token comment">## see: restult.txt below</span></code></pre><p>这里采用的是<code>requests</code>方法</p></div><h2 id="遇到问题">遇到问题</h2><div class="story post-story"><p>构造<code>header``body</code>,<code>uri</code> 后</p><p>无论是使用python代码还是使用postman工具</p><p>获得返回的结果都是二进制流，解析后乱码</p><p>如下图：</p><p><img src="https://i.loli.net/2021/11/25/Dfa8t1ScETWlUid.png" class="lazyload" data-srcset="https://i.loli.net/2021/11/25/Dfa8t1ScETWlUid.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211125121849081"></p><p>尝试各种设置编码为<code>'utf-8'</code> 仍输出乱码， 初步判断：<font color='red'> 对返回的结果解析编码的问题</font></p><p><strong>构造的body为：</strong></p><pre class="language-python" data-language="python"><code class="language-python">body <span class="token operator">=</span> <span class="token string">"&lt;?xml version=\"1.0\" encoding=\"utf-8\"?>\n&lt;soap:Envelope xmlns:exm=\"http://schemas.microsoft.com/exchange/services/2006/messages\" xmlns:ext=\"http://schemas.microsoft.com/exchange/services/2006/types\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\n&lt;soap:Header>\n&lt;a:Action soap:mustUnderstand=\"1\">http://schemas.microsoft.com/exchange/2010/Autodiscover/Autodiscover/GetFederationInformation&lt;/a:Action>\n&lt;a:To soap:mustUnderstand=\"1\">https://autodiscover-s.outlook.com/autodiscover/autodiscover.svc&lt;/a:To>\n&lt;a:ReplyTo>\n&lt;a:Address>http://www.w3.org/2005/08/addressing/anonymous&lt;/a:Address>\n&lt;/a:ReplyTo>\n&lt;/soap:Header>\n&lt;soap:Body>\n&lt;GetFederationInformationRequestMessage xmlns=\"http://schemas.microsoft.com/exchange/2010/Autodiscover\">\n&lt;Request>\n&lt;Domain>"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> <span class="token string">"&lt;/Domain>\n&lt;/Request>\n&lt;/GetFederationInformationRequestMessage>\n&lt;/soap:Body>\n&lt;/soap:Envelope>"</span></code></pre><p><strong>构造的header为</strong></p><pre class="language-python" data-language="python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>    <span class="token string">'content-type'</span><span class="token punctuation">:</span> <span class="token string">'text/xml'</span><span class="token punctuation">,</span>    <span class="token string">'SOAPAction'</span><span class="token punctuation">:</span> <span class="token string">'http://schemas.microsoft.com/exchange/2010/Autodiscover/Autodiscover/GetFederationInformation'</span><span class="token punctuation">,</span>    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'AutodiscoverClient'</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span></code></pre></div><h2 id="解决方法：">解决方法：</h2><div class="story post-story"><p><font color='orange'>判断为返回结果解码造成的</font></p><p>尝试在header中添加<code>'Accept-Encoding':'utf-8'</code></p><p>如下:</p><pre class="language-python" data-language="python"><code class="language-python">headers <span class="token operator">=</span> <span class="token punctuation">&#123;</span>    <span class="token string">'content-type'</span><span class="token punctuation">:</span> <span class="token string">'text/xml'</span><span class="token punctuation">,</span>    <span class="token string">'SOAPAction'</span><span class="token punctuation">:</span> <span class="token string">'http://schemas.microsoft.com/exchange/2010/Autodiscover/Autodiscover/GetFederationInformation'</span><span class="token punctuation">,</span>    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'AutodiscoverClient'</span><span class="token punctuation">,</span>    <span class="token string">'Accept-Encoding'</span><span class="token punctuation">:</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span><span class="token punctuation">&#125;</span></code></pre><p><strong>结果：</strong></p><p>乱码问题成功解决：</p><p><img src="https://i.loli.net/2021/11/25/pMeXbHc8gtNxYQm.png" class="lazyload" data-srcset="https://i.loli.net/2021/11/25/pMeXbHc8gtNxYQm.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20211125122254951"></p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> soap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python解析DNS记录</title>
       <link href="/posts/c3784c4e/"/>
       <url>/posts/c3784c4e/</url>
@@ -1600,9 +1629,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -1885,9 +1914,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
