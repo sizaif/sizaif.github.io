@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Rust学习4-关键字</title>
+      <link href="/posts/8358a15/"/>
+      <url>/posts/8358a15/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关键字">关键字</h2><div class="story post-story"><p>下面的列表包含 Rust 中正在使用或者以后会用到的关键字。因此，这些关键字不能被用作标识符（除了 “<a href="https://kaisery.github.io/trpl-zh-cn/appendix-01-keywords.html#%E5%8E%9F%E5%A7%8B%E6%A0%87%E8%AF%86%E7%AC%A6">原始标识符</a>” 部分介绍的原始标识符），这包括函数、变量、参数、结构体字段、模块、crate、常量、宏、静态值、属性、类型、trait 或生命周期 的名字。</p><h3 id="目前正在使用的关键字">目前正在使用的关键字</h3><p>如下关键字目前有对应其描述的功能。</p><ul><li><code>as</code> - 强制类型转换，消除特定包含项的 trait 的歧义，或者对 <code>use</code> 和 <code>extern crate</code> 语句中的项重命名</li><li><code>async</code> - 返回一个 <code>Future</code> 而不是阻塞当前线程</li><li><code>await</code> - 暂停执行直到 <code>Future</code> 的结果就绪</li><li><code>break</code> - 立刻退出循环</li><li><code>const</code> - 定义常量或不变裸指针（constant raw pointer）</li><li><code>continue</code> - 继续进入下一次循环迭代</li><li><code>crate</code> - <strong>链接（link）一个外部 crate 或一个代表宏定义的 crate 的宏变量</strong></li><li><code>dyn</code> - <strong>动态分发 trait 对象</strong></li><li><code>else</code> - 作为 <code>if</code> 和 <code>if let</code> 控制流结构的 fallback</li><li><code>enum</code> - 定义一个枚举</li><li><code>extern</code> - 链接一个外部 <strong>crate</strong> 、函数或变量</li><li><code>false</code> - 布尔字面值 <code>false</code></li><li><code>fn</code> - 定义一个函数或 <strong>函数指针类型</strong> (<em>function pointer type</em>)</li><li><code>for</code> - 遍历一个迭代器或实现一个 trait 或者指定一个更高级的生命周期</li><li><code>if</code> - 基于条件表达式的结果分支</li><li><code>impl</code> - <strong>实现自有或 trait 功能</strong></li><li><code>in</code> - <code>for</code> 循环语法的一部分</li><li><code>let</code> - 绑定一个变量</li><li><code>loop</code> - 无条件循环</li><li><code>match</code> - 模式匹配</li><li><code>mod</code> - 定义一个模块</li><li><code>move</code> - 使闭包获取其所捕获项的所有权</li><li><code>mut</code> - 表示引用、裸指针或模式绑定的可变性</li><li><code>pub</code> - 表示结构体字段、<code>impl</code> 块或模块的公有可见性</li><li><code>ref</code> - 通过引用绑定</li><li><code>return</code> - 从函数中返回</li><li><code>Self</code> - <strong>定义或实现 trait 的类型的类型别名</strong></li><li><code>self</code> - 表示方法本身或当前模块</li><li><code>static</code> - 表示全局变量或在整个程序执行期间保持其生命周期</li><li><code>struct</code> - 定义一个结构体</li><li><code>super</code> - 表示当前模块的父模块</li><li><code>trait</code> - <strong>定义一个 trait</strong></li><li><code>true</code> - 布尔字面值 <code>true</code></li><li><code>type</code> - 定义一个类型别名或关联类型</li><li><code>union</code> - 定义一个 <a href="https://doc.rust-lang.org/reference/items/unions.html">union</a> 并且是 union 声明中唯一用到的关键字</li><li><code>unsafe</code> - 表示不安全的代码、函数、trait 或实现</li><li><code>use</code> - 引入外部空间的符号</li><li><code>where</code> - 表示一个约束类型的从句</li><li><code>while</code> - 基于一个表达式的结果判断是否进行循环</li></ul><h3 id="保留做将来使用的关键字">保留做将来使用的关键字</h3><p>如下关键字没有任何功能，不过由 Rust 保留以备将来的应用。</p><ul><li><code>abstract</code></li><li><code>become</code></li><li><code>box</code></li><li><code>do</code></li><li><code>final</code></li><li><code>macro</code></li><li><code>override</code></li><li><code>priv</code></li><li><code>try</code></li><li><code>typeof</code></li><li><code>unsized</code></li><li><code>virtual</code></li><li><code>yield</code></li></ul></div><h2 id="原始标识符">原始标识符</h2><div class="story post-story"><p>原始标识符（Raw identifiers）允许你使用通常不能使用的关键字，其带有 <code>r#</code> 前缀。</p><p>例如，<code>match</code> 是关键字。如果尝试编译如下使用 <code>match</code> 作为名字的函数：</p><pre class="language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function-definition function">match</span><span class="token punctuation">(</span>needle<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">,</span> haystack<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token keyword">bool</span> <span class="token punctuation">&#123;</span>    haystack<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>needle<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></code></pre><p>会得到这个错误：</p><pre class="language-text" data-language="text"><code class="language-text">error: expected identifier, found keyword `match` --> src/main.rs:4:4  |4 | fn match(needle: &amp;str, haystack: &amp;str) -> bool &#123;  |    ^^^^^ expected identifier, found keyword</code></pre><p>该错误表示你不能将关键字 <code>match</code> 用作函数标识符。你可以使用原始标识符将 <code>match</code> 作为函数名称使用：</p><p>文件名: src/main.rs</p><pre class="language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function-definition function">r</span>#<span class="token keyword">match</span><span class="token punctuation">(</span>needle<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">,</span> haystack<span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token keyword">str</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token keyword">bool</span> <span class="token punctuation">&#123;</span>    haystack<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>needle<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token macro property">assert!</span><span class="token punctuation">(</span>r#<span class="token keyword">match</span><span class="token punctuation">(</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token string">"foobar"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span></code></pre><p>此代码编译没有任何错误。注意 <code>r#</code> 前缀需同时用于函数名定义和 <code>main</code> 函数中的调用。</p><p>原始标识符允许使用你选择的任何单词作为标识符，即使该单词恰好是保留关键字。 此外，原始标识符允许你使用以不同于你的 crate 使用的 Rust 版本编写的库。比如，<code>try</code> 在 2015 edition 中不是关键字，而在 2018 edition 则是。所以如果用 2015 edition 编写的库中带有 <code>try</code> 函数，在 2018 edition 中调用时就需要使用原始标识符语法，在这里是 <code>r#try</code>。有关版本的更多信息，请参见<a href="https://kaisery.github.io/trpl-zh-cn/appendix-05-editions.html">附录 E</a>.</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Rust </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Rust学习3-派生-Derive</title>
+      <link href="/posts/d76d00f/"/>
+      <url>/posts/d76d00f/</url>
+      
+        <content type="html"><![CDATA[<h2 id="派生">派生</h2><div class="story post-story"><p>通过 <code>#[derive]</code> <a href="https://rustwiki.org/zh-CN/rust-by-example/attribute.html">属性</a>，编译器能够提供某些 trait 的基本实现。如果需要更复杂的行为，这些 trait 也可以手动实现。</p><p>下面是可以自动派生的 trait：</p><ul><li>比较 trait: <a href="https://rustwiki.org/zh-CN/std/cmp/trait.Eq.html"><code>Eq</code></a>, <a href="https://rustwiki.org/zh-CN/std/cmp/trait.PartialEq.html"><code>PartialEq</code></a>, <a href="https://rustwiki.org/zh-CN/std/cmp/trait.Ord.html"><code>Ord</code></a>, <a href="https://rustwiki.org/zh-CN/std/cmp/trait.PartialOrd.html"><code>PartialOrd</code></a><ul><li>Eq：<a href="https://en.wikipedia.org/wiki/Equivalence_relation">完全等价关系</a></li><li>PartialEq： <a href="https://en.wikipedia.org/wiki/Partial_equivalence_relation">部分等价关系</a></li><li>Ord：<a href="https://en.wikipedia.org/wiki/Total_order">全序关系</a></li><li>PartialOrd：比较排序顺序的值</li></ul></li><li><a href="https://rustwiki.org/zh-CN/std/clone/trait.Clone.html"><code>Clone</code></a>, 用来从 <code>&amp;T</code> 创建副本 <code>T</code>。</li><li><a href="https://rustwiki.org/zh-CN/core/marker/trait.Copy.html"><code>Copy</code></a>，使类型具有 “复制语义”（copy semantics）而非 “移动语义”（move semantics）。</li><li><a href="https://rustwiki.org/zh-CN/std/hash/trait.Hash.html"><code>Hash</code></a>，从 <code>&amp;T</code> 计算哈希值（hash）。</li><li><a href="https://rustwiki.org/zh-CN/std/default/trait.Default.html"><code>Default</code></a>, 创建数据类型的一个空实例。</li><li><a href="https://rustwiki.org/zh-CN/std/fmt/trait.Debug.html"><code>Debug</code></a>，使用 <code>&#123;:?&#125;</code> formatter 来格式化一个值。</li></ul><pre class="language-rust" data-language="rust"><code class="language-rust"><span class="token comment">// `Centimeters`，可以比较的元组结构体</span><span class="token attribute attr-name">#[derive(PartialEq, PartialOrd)]</span><span class="token keyword">struct</span> <span class="token type-definition class-name">Centimeters</span><span class="token punctuation">(</span><span class="token keyword">f64</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// `Inches`，可以打印的元组结构体</span><span class="token attribute attr-name">#[derive(Debug)]</span><span class="token keyword">struct</span> <span class="token type-definition class-name">Inches</span><span class="token punctuation">(</span><span class="token keyword">i32</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">impl</span> <span class="token class-name">Inches</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">fn</span> <span class="token function-definition function">to_centimeters</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">self</span><span class="token punctuation">)</span> <span class="token punctuation">-></span> <span class="token class-name">Centimeters</span> <span class="token punctuation">&#123;</span>        <span class="token keyword">let</span> <span class="token operator">&amp;</span><span class="token class-name">Inches</span><span class="token punctuation">(</span>inches<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">;</span>        <span class="token class-name">Centimeters</span><span class="token punctuation">(</span>inches <span class="token keyword">as</span> <span class="token keyword">f64</span> <span class="token operator">*</span> <span class="token number">2.54</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token comment">// `Seconds`，不带附加属性的元组结构体</span><span class="token keyword">struct</span> <span class="token type-definition class-name">Seconds</span><span class="token punctuation">(</span><span class="token keyword">i32</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">let</span> _one_second <span class="token operator">=</span> <span class="token class-name">Seconds</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 报错：`Seconds` 不能打印；它没有实现 `Debug` trait</span>    <span class="token comment">//println!("One second looks like: &#123;:?&#125;", _one_second);</span>    <span class="token comment">// 试一试 ^ 取消此行注释</span>    <span class="token comment">// 报错：`Seconds`不能比较；它没有实现 `PartialEq` trait</span>    <span class="token comment">//let _this_is_true = (_one_second == _one_second);</span>    <span class="token comment">// 试一试 ^ 取消此行注释</span>    <span class="token keyword">let</span> foot <span class="token operator">=</span> <span class="token class-name">Inches</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"One foot equals &#123;:?&#125;"</span><span class="token punctuation">,</span> foot<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">let</span> meter <span class="token operator">=</span> <span class="token class-name">Centimeters</span><span class="token punctuation">(</span><span class="token number">100.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">let</span> cmp <span class="token operator">=</span>        <span class="token keyword">if</span> foot<span class="token punctuation">.</span><span class="token function">to_centimeters</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> meter <span class="token punctuation">&#123;</span>            <span class="token string">"smaller"</span>        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>            <span class="token string">"bigger"</span>        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"One foot is &#123;&#125; than one meter."</span><span class="token punctuation">,</span> cmp<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span></code></pre></div><h2 id="属性">属性</h2><div class="story post-story"><p>属性是应用于某些模块、crate 或项的元数据（metadata）。这元数据可以用来：</p><ul><li><a href="https://rustwiki.org/zh-CN/rust-by-example/attribute/cfg.html">条件编译代码</a></li><li><a href="https://rustwiki.org/zh-CN/rust-by-example/attribute/crate.html">设置 crate 名称、版本和类型（二进制文件或库）</a></li><li>禁用 <a href="https://en.wikipedia.org/wiki/Lint_(software)">lint</a> （警告）</li><li>启用编译器的特性（宏、全局导入（glob import）等）</li><li>链接到一个非 Rust 语言的库</li><li>标记函数作为单元测试</li><li>标记函数作为基准测试的某个部分</li></ul><p>当属性作用于整个 crate 时，它们的语法为 <code>#![crate_attribute]</code>，当它们用于模块 或项时，语法为 <code>#[item_attribute]</code>（注意少了感叹号 <code>!</code>）。</p><p>属性可以接受参数，有不同的语法形式：</p><ul><li><code>#[attribute = &quot;value&quot;]</code></li><li><code>#[attribute(key = &quot;value&quot;)]</code></li><li><code>#[attribute(value)]</code></li></ul><p>属性可以多个值，它们可以分开到多行中：</p><pre class="language-rust" data-language="rust"><code class="language-rust"><span class="token attribute attr-name">#[attribute(value, value2)]</span><span class="token attribute attr-name">#[attribute(value, value2, value3,            value4, value5)]</span></code></pre></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Rust </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> rust </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Rust学习2-宏与元编程</title>
       <link href="/posts/7af06751/"/>
       <url>/posts/7af06751/</url>
@@ -420,9 +474,9 @@
       
         <tags>
             
-            <tag> ASN.1 </tag>
-            
             <tag> LTE </tag>
+            
+            <tag> ASN.1 </tag>
             
         </tags>
       
@@ -1475,9 +1529,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
@@ -1619,9 +1673,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
