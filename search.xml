@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>AD与AAD区别和联系</title>
+      <link href="/posts/2036bda7/"/>
+      <url>/posts/2036bda7/</url>
+      
+        <content type="html"><![CDATA[<h1>AD 与AAD 的区别与联系</h1><blockquote><p>2022-01-07</p></blockquote><p>[TOC]</p><h2 id="AD是什么">AD是什么</h2><div class="story post-story"><p>Active Directory(AD) 活动目录</p><p>Active Directory (AD)是一个数据库和一组服务，将用户与他们完成工作所需的网络资源连接起来。</p><p>活动目录(Active Directory)主要提供以下功能：1、服务器及客户端计算机管理，2、用户服务，3、资源管理，4、桌面配置，5、应用系统支撑等。</p><p><strong>AD（Active Directory）概述：</strong></p><p>传统AD依赖于Kerbose进行身份验证，Kerbose又叫做三头狗，要求计算机、用户和域控三方都要参与验证。因此，在传统AD中，计算机也拥有账号，也需要加域。另外，计算机也有登录到域的过程，甚至可以授权计算机账号访问文件夹和其他资源。在传统AD中，所有以Local System、Network Service身份运行的服务在访问域中其他共享资源时，都是以计算机账户的身份进行验证的。</p><p>传统AD的登录会由用户向域控申请和计算机之间通信的会话票据(默认存活8小时)，用户登录计算机时，向计算机出示会话票据，同时加上时间戳证明没有篡改过，计算机才会授权用户登录。登录以后，会在该计算机上生成登录会话，并查询该用户所属的域组和本地组，以此来创建访问令牌，如果是本地管理员，则会生成2张访问令牌(普通用户令牌和管理员令牌)。</p><p>传统AD协议(如Kerbose和LDAP）太沉重，一般只能适合内网C/S架构，无法穿透Internet。如果要穿透Internet，通常要将其转为基于Claim的形式，例如ADFS。ADFS类似于调制解调器，能够把Kerbose协议&quot;转换&quot;为其他Internet验证协议(SAML等)，但这其实并不是真正意义上的&quot;转换&quot;。</p><h3 id="ADDS-是什么">ADDS 是什么</h3><blockquote><p><a href="https://www.quest.com/solutions/active-directory/what-is-active-directory.aspx">What is Active Directory?</a></p></blockquote><p>Active Directory Domain Services (AD DS) 域控服务</p><p>运行AD DS的服务器称为域控制器(DCs, domain controllers)</p><p>组织通常具有多个DCS，每个组织都有一个用于整个域的目录的副本。对一个域控制器上的目录 - 例如密码更新或删除用户帐户的更改将复制到其他DCS，以便它们保持最新状态。全局目录服务器是一个DC，它存储其域目录中的所有对象的完整副本以及森林中所有其他域的所有对象的部分副本;这使用户和应用程序能够在其林的任何域中查找对象。桌面，笔记本电脑和运行Windows（而不是Windows Server）的其他设备可以是Active Directory环境的一部分，但它们不会运行AD DS。AD DS依赖于多种建立的协议和标准，包括LDAP（轻量级目录访问协议），Kerberos和DNS（域名系统）。</p><p><img src="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/NLRxYiBq9S2s7mX.png" class="lazyload" data-srcset="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/NLRxYiBq9S2s7mX.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220107150308606"></p></div><h2 id="AAD是什么">AAD是什么</h2><div class="story post-story"><p>Azure Active Directory (Azure AD)</p><p>是 Microsoft <font color='red'>基于云的身份和访问管理服务</font>，可实现的员工登录和访问 Azure 中的资源：</p><blockquote><p><a href="https://docs.microsoft.com/zh-cn/azure/active-directory/fundamentals/active-directory-whatis">What is Azure Active Directory</a></p></blockquote><p><img src="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/3ghsbeXnqIjmiSu.png" class="lazyload" data-srcset="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/3ghsbeXnqIjmiSu.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220107150447019"></p><p><strong>AAD（Azure Active Directory）概述</strong></p><p>Azure 提供通过AAD管理身份验证和授权的服务，AAD是一种基于云的标识服务，管理员和开发人员可以使用Azure AD配置的集中式规则和策略来控制对内部和外部数据及应用程序的访问。  AAD支持常见的Internet验证协议，例如WS-Federation、SAML等轻量级的基于Claim的验证协议。与传统AD类似，AAD同样有访问令牌，不过其中的内容是Claim属性，而且由于需要在Internet上交付，所以需要对其进行数字签名和加密。下面是AAD主要包含的四个服务：</p><ul><li><p>身份验证： 包括验证身份以访问应用程序和资源、自助密码重置、多重身份验证（MFA）等功能。</p></li><li><p>单一登录（SSO）：用户只需记住一个ID和一个密码即可访问多个应用程序。</p></li><li><p>应用程序管理：可以使用AAD应用程序代理、SSO、“访问”面板和SaaS应用来管理云应用和本地应用。</p></li><li><p>设备管理：管理云设备或本地设备访问企业数据的方式</p></li></ul><h3 id="AADDS是什么">AADDS是什么</h3><p>Azure Active Directory Domain Services( Azure AD DS)<font color='red'> 提供托管域服务</font></p><p>类似ADDS，例如域加入、组策略、轻型目录访问协议 (LDAP) 和 Kerberos/NTLM 身份验证。 无需在云中部署、管理和修补域控制器 (DC) 即可使用这些域服务。</p><p>Azure AD DS 托管域使你能够在云中或你不希望目录查找始终返回到本地 AD DS 环境的位置，运行无法使用现代身份验证方法的旧版应用程序。 你可以将这些旧版应用程序从本地环境直接迁移到托管域，而无需在云中管理 AD DS 环境。</p><p>Azure AD DS 与现有的 Azure AD 租户集成。 通过此集成，用户可以使用其现有凭据登录到与托管域相连的服务和应用程序。 还可以使用现有组和用户帐户来保护对资源的访问。 这些功能可更顺畅地将本地资源直接迁移到 Azure。</p><blockquote><p><a href="https://docs.microsoft.com/zh-cn/azure/active-directory-domain-services/overview">什么是 Azure Active Directory 域服务</a></p></blockquote></div><h2 id="AD与AAD的区别与联系">AD与AAD的区别与联系</h2><div class="story post-story"><blockquote><p><a href="https://docs.microsoft.com/zh-cn/azure/active-directory/fundamentals/active-directory-compare-azure-ad-to-ad">将 Active Directory 与 Azure Active Directory 进行比较</a></p></blockquote><p><img src="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/nUjhgmTLNsWVBwZ.png" class="lazyload" data-srcset="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/nUjhgmTLNsWVBwZ.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220107150753638"></p><p><img src="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/8e1qBxAPUYCp3Wh.png" class="lazyload" data-srcset="Q:/whx/Dropbox/Master/Blog/blog/source/_posts/img_article/2022-02-23-AD%E4%B8%8EAAD%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/8e1qBxAPUYCp3Wh.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220107185446160"></p><h3 id="AD和AAD的区别">AD和AAD的区别</h3><pre><code>    AAD与传统AD是完全不同的，前者是云服务，只管验证与授权, 而AAD更像是传统AD向云端的一个扩展，用以满足更多的应用场景与验证需求。AAD 通过为组织提供一种适用于在云中和本地所有应用的标识即服务解决方案，将目录服务方案提升到了一个新层次。同时，AAD是基于云的身份和访问管理解决方案，它也可以与本地AD同步，为本地和基于云的系统提供身份验证。AAD相较于AD的扩展功能概述如下：</code></pre><ol><li><p><strong>AAD 解决了传统AD无法扩展到外部的局限性问题</strong>。传统AD在验证和授权方面更多的是做验证，并且无法扩展到外部（受限于Kerbose和LDAP），只能局限在企业环境。而AAD恰好能够解决这一问题，它支持如OAuth2、SAML、WS-Federation和OpenID等轻量级的基于Claim的验证协议，同时也提供了Rest接口。</p></li><li><p><strong>AAD 更关注于验证与授权</strong>。除去验证，传统AD更关注于资源的发现与管理，如最常用的组策略，而这部分内容在AAD里是不关注的，AAD关注的是验证与授权，而非管理本身。</p></li><li><p><strong>AAD 通过多重身份验证和无密码技术提高了密码安全性</strong>。传统AD中的凭据基于密码、证书或智能卡的身份验证，通过密码策略来管理密码的长度、到期时间和复杂性，以此确保AD中密码的安全性；而AAD对云和本地使用智能密码保护，AAD通过多重身份验证和无密码技术显著的提高了密码安全性，同时也为用户提供了自助重置密码的功能来提升用户体验，降低技术支持成本。</p></li><li><p><strong>AAD 使用AAD应用程序代理访问本地应用</strong>。AD当中大多数本地应用都使用LDAP、NTLM或kerberos协议来控制用户的访问。AAD则可使用在本地运行的AAD应用程序代理来访问这些类型的本地应用。</p></li><li><p><strong>AAD 完全基于云</strong>。AAD 的优势在于它完全基于云所提供的灵活性，这意味着它既可以充当组织的唯一目录，也可以通过 AAD Connect 与本地AD目录服务同步。无论采取哪种方式，它都使本地和基于云的用户能够访问相同的应用程序和资源，同时受益于诸如单点登录 (SSO)、多重身份验证 (MFA)、条件访问等功能。更重要的是，它提供了一个单一位置来管理整个 IT 资产中的身份、安全性和合规性控制。</p><p>下表展示了AD与AAD的具体区别：</p></li></ol><table><thead><tr><th style="text-align:center"></th><th style="text-align:center">On-Premises Active Directory</th><th style="text-align:center">Azure Active Directory</th></tr></thead><tbody><tr><td style="text-align:center">Authentication</td><td style="text-align:center">kerberos</td><td style="text-align:center">A number of protocols such as SAML，WS-Federation and OAuth，OIDC</td></tr><tr><td style="text-align:center">Locator mechanism</td><td style="text-align:center">DNS</td><td style="text-align:center">✗</td></tr><tr><td style="text-align:center">Structure</td><td style="text-align:center">Hierarchical(based on X.500)</td><td style="text-align:center">Flat</td></tr><tr><td style="text-align:center">Query</td><td style="text-align:center">LDAP</td><td style="text-align:center">A rest API, called AD Graph API</td></tr><tr><td style="text-align:center">Communication types</td><td style="text-align:center">All kinds of types</td><td style="text-align:center">HTTP(port 80) HTTP(port 443)</td></tr><tr><td style="text-align:center">Devices</td><td style="text-align:center">Corporate assets, mostly PC</td><td style="text-align:center">BYOD</td></tr><tr><td style="text-align:center">Focus on</td><td style="text-align:center">On-perm services</td><td style="text-align:center">Internet-based services, such as O365, Azure and Facebook(Any services federated with Azure AD)</td></tr><tr><td style="text-align:center">Domain joined</td><td style="text-align:center">✓</td><td style="text-align:center">✗</td></tr><tr><td style="text-align:center">User</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td></tr><tr><td style="text-align:center">Group</td><td style="text-align:center">✓</td><td style="text-align:center">✓</td></tr><tr><td style="text-align:center">OU</td><td style="text-align:center">✓</td><td style="text-align:center">✗</td></tr><tr><td style="text-align:center">GPO</td><td style="text-align:center">✓</td><td style="text-align:center">✗</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Azure </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Azure </tag>
+            
+            <tag> 微软 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Rust学习4-关键字</title>
       <link href="/posts/8358a15/"/>
       <url>/posts/8358a15/</url>
@@ -1529,9 +1558,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -1673,9 +1702,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
