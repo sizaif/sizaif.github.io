@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Miui13-mi10s刷twrp和Magisk</title>
+      <link href="/posts/9d7955fe/"/>
+      <url>/posts/9d7955fe/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><div class="story post-story"><p>待手机解锁BL锁后,</p><p>尝试开始刷机</p><p>目标:</p><ol><li>刷SkyMi星空包-<code>miui13</code> 官改包纯净版</li><li>刷入<code>Magisk v24.1</code>面具</li><li>以及EDXP,实现绕过<code>ROOT</code>检测</li></ol></div><h2 id="步骤">步骤</h2><div class="story post-story"><h3 id="安装Magisk">安装Magisk</h3><p><font color='red'>magisk root权限的正确获得方法是修补你目前系统的boot，再通过电脑adb命令刷入修补后的boot。</font></p><p><font color='cornflowerblue'>错误方法: 先获得官方root权限，再给magisk manager权限来让其直接刷入magisk来获得root权限。</font></p><blockquote><p>首先要有一个概念，小米11（后文均代指出厂就是安卓11）的手机与之前的小米/红米是不一样的（哪怕后来从10升级了安卓11），小米11使用的是V a/b的分区形式。不同于其他手机，其他手机的启动流程图可以大致参考一下</p></blockquote><p><img src="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><ol><li><p>拿到<code>boot.img</code></p><p>新版本需要先解压payload.bin，然后需要一个工具来二次解包工具在这里 <a href="aili.lanzoux.com/ii2lkkp079g">aili.lanzoux.com/ii2lkkp079g</a>密码:5b8x)<br>这个工具很简单，包里也有readme，大概意思就是把payload.bin放入input，运行exe，到output去找解压出的boot.img包就行</p></li><li><p>手机上安装Magisk Manager</p><p>将刚刚提取到的boot.img移到手机里，打开梯或者更改面具的自定义通道，</p><p>然后回到主界面选择Magisk的安装</p><p><img src="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></li><li><p>Magisk安装</p><p>此处选择并修补一个文件，选择到刚刚移入手机的boot.img，等待修补完成，在同目录下会生成boot_patch.img文件。</p><p>此处不可选择直接安装（推荐），原因后面会说</p></li><li><p>将这个修补的boot_patch.img移回电脑。开始线刷，</p><pre class="language-shell" data-language="shell"><code class="language-shell"><span class="token variable">$fastboot</span> flash boot_a boot_patched.img<span class="token variable">$fastboot</span> flash boot_b boot_patched.img</code></pre></li></ol><p><strong>为什么面具不能选择直接安装（推荐）？</strong></p><p>如果你提前已经获取了官方Root，这一步你当然可以正常运行并且刷好面具。但为了绕过银行等APPRoot检测，使的Magiskhide正常发挥作用。使用官方Root获取到面具，面具接管了你的官方Root，当你使用hide时，面具的Root被隐藏了，官方的Root就恢复了（对该应用）。所以应用能检测出Root，而且很难再把官方Root去隐藏。本教程压根就不刷官方Root直接获取面具Root，所以Magiskhide能正常发挥作用（并且大多数情况是绝对够用的）。<br>你当然也能再刷一个某某银行去Root的模块，但是不麻烦么？明明自带的腿就能发挥作用，你先砍断他的腿在给他接上，这不是多此一举？而且模块越多稳定性啊软件更新啊都是问题。一劳永逸的方法不好么？</p><h3 id="Magisk-隐藏生效">Magisk 隐藏生效</h3><p>[填坑]</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Win </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fastboot </tag>
+            
+            <tag> 驱动 </tag>
+            
+            <tag> miflash unlock </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决Win10 Fastboot驱动问题</title>
       <link href="/posts/c1ff5c7b/"/>
       <url>/posts/c1ff5c7b/</url>
@@ -1884,9 +1915,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -2169,9 +2200,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
