@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>解决Win10 Fastboot驱动问题</title>
+      <link href="/posts/c1ff5c7b/"/>
+      <url>/posts/c1ff5c7b/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><div class="story post-story"><p>小米手机解锁BL,</p><p>使用从官网下载的<a href="http://miuirom.xiaomi.com/rom/u1106245679/6.5.224.28/miflash_unlock-6.5.224.28.zip">解锁工具</a> (miflash_unlock-6.5.224.28 版本自身不带win10 驱动)导致出现即使连接手机后也显示: <font color='red'>当前未连接手机</font></p><p><img src="https://s2.loli.net/2022/03/01/D5NLZIfz3wmEkJP.png" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/D5NLZIfz3wmEkJP.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220301173447180"></p></div><h2 id="解决方法">解决方法</h2><div class="story post-story"><p>下载驱动:  <a href="https://github.com/xushuan/google_latest_usb_driver_windows">google_latest_usb_driver_windows</a></p><p>解压后目录下有个: <code>android_winusb.inf</code> 文件</p><ol><li><p>打开设备管理器</p></li><li><p>其他设备里找到 <code>Android</code>类似带有!不正常驱动</p></li><li><p>更新驱动程序-&gt;浏览我的计算机以查找驱动程序</p></li><li><p>让我从计算机上的可用驱动程序列表选取-&gt;下一步-&gt;从磁盘安装</p></li><li><p><img src="https://s2.loli.net/2022/03/01/LMuSJy7ZXcKI3eO.png" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/LMuSJy7ZXcKI3eO.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></li><li><p><img src="https://s2.loli.net/2022/03/01/Dsx7yudQF1mY83E.png" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/Dsx7yudQF1mY83E.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></li><li><p>选择从磁盘安装</p></li><li><p>选择<code>android_winusb.inf</code>文件</p></li><li><p>下一步安装等待安装完成后即可</p></li><li><p>刷新其他设备, 驱动变的可用如图</p><p><img src="https://s2.loli.net/2022/03/01/b4Q5dCKzesGUO3h.png" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/b4Q5dCKzesGUO3h.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220301174005151"></p></li></ol></div><h2 id="安装ADB">安装ADB</h2><div class="story post-story"><p><a href="https://www.mediafire.com/file/7iaxnjqiptc3um7/platform-tools_r31.0.3-windows.zip/file">platform-tools_r31.0.3-windows.zip</a></p><ol><li>手机开发者选项里设置 USB 调试, OEM启动 后</li><li>在platform文件夹下打开控制台输入</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看设备</span>$ ./adb.exe devicesList of devices attached2b24874b        device<span class="token comment"># 进入fastboot模式</span>$./adb.exe <span class="token function">reboot</span> bootloader<span class="token comment"># 等待手机进入fastboot后 查看fastboot信息</span>$ ./fastboot.exe devices2b24874b        fastboot<span class="token comment"># 手机重启</span>$ ./fastboot.exe <span class="token function">reboot</span>Rebooting                                          OKAY <span class="token punctuation">[</span>  <span class="token number">0</span>.001s<span class="token punctuation">]</span>Finished. Total time: <span class="token number">0</span>.002s</code></pre></div><h2 id="使用miflash-unlock-解BL锁">使用miflash unlock 解BL锁</h2><div class="story post-story"><p>此时登录账户后, 可正常解锁</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Win </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fastboot </tag>
+            
+            <tag> 驱动 </tag>
+            
+            <tag> miflash unlock </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>AD与AAD区别和联系</title>
       <link href="/posts/2036bda7/"/>
       <url>/posts/2036bda7/</url>
@@ -1482,9 +1513,9 @@
           
           <category> 机器学习 </category>
           
-          <category> 机器学习 </category>
-          
           <category> VS2019 </category>
+          
+          <category> 机器学习 </category>
           
           <category> Tensorflow </category>
           
