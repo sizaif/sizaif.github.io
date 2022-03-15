@@ -4,11 +4,65 @@
   
     
     <entry>
+      <title>Tlspuffin-Docker:changelog</title>
+      <link href="/posts/95953aea/"/>
+      <url>/posts/95953aea/</url>
+      
+        <content type="html"><![CDATA[<div class="timeline"><div class="timenode"><div class="meta"><p><p><code>1.6.0</code></p></p></div><div class="body"><ul><li>修复deps/rust-openssl-src 文件权限<ul><li><code>util/dmod</code> 权限问题</li></ul></li><li>修复 <code>makedepend: not found</code><ul><li>apt-get install xutils-dev</li></ul></li><li>修改主版本号</li><li>pust到dcokerhub</li><li>稳定版本</li></ul></div></div><div class="timenode"><div class="meta"><p><p><code>1.3.0</code> - <code>1.5.0</code></p></p></div><div class="body"><ul><li>修复编译错误</li></ul></div></div><div class="timenode"><div class="meta"><p><p><code>1.2.0</code></p></p></div><div class="body"><ul><li>增加openssl1.01f的依赖</li></ul></div></div><div class="timenode"><div class="meta"><p><p><code>1.1.0</code></p></p></div><div class="body"><ul><li>增加openssl1.01f支持</li></ul></div></div><div class="timenode"><div class="meta"><p><p><code>1.0.0</code></p></p></div><div class="body"><ul><li>移植到docker中</li><li>初始src</li></ul></div></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Master </category>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Master </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Tlspuffin 切换LUT版本</title>
+      <link href="/posts/ed5ef6e5/"/>
+      <url>/posts/ed5ef6e5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="说明">说明</h2><div class="story post-story"><p><strong>当前的缺陷</strong></p><p>只有<code>openssl1.1.1k</code> 和<code>libressl</code>（存疑) 支持<code>Security Violation Oracle</code></p><blockquote><p>文献8.2.2节</p><p><strong>Improved Security Violation Oracle</strong></p><p>In Section 5.2 we designed a bug oracle which is able to check security properties. Right now we only check after successful handshakes whether no security violation happened. For example whether a downgrade or authentication bypass happened. This could be extended by also verifying invariants during the execution of a handshake. That way we could for example detect the FREAK vulnerability automatically.</p><p>Furthermore, the security violation oracle could also be extended to other TLS implementations.<br><font color='red'><strong>Right now only OpenSSL 1.1.1k is supported</strong>.</font> Support for checking security violations could be ported to LibreSSL 3.3.3 and backported to OpenSSL 1.0.x.</p></blockquote><p>那么切换到其他版本的时候，暂时不能使用<code>Oracle</code></p></div><h2 id="deps的关系">deps的关系</h2><div class="story post-story"><p><img src="https://s2.loli.net/2022/03/04/O32BfHNia9tK8eh.png" class="lazyload" data-srcset="https://s2.loli.net/2022/03/04/O32BfHNia9tK8eh.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220304204130691"></p><ol><li>Tlspuffin 顶层 Cargo.toml中定义 features中<code>openssl</code>版本, 以及依赖<code>rust-openssl/openssl</code></li><li><code>rust-openssl/openssl</code> Cargo.toml中定义<code>vendored-openssl</code>版本，以及依赖<code>openssl-sys</code></li><li><code>openssl-sys</code>  Cargo.toml中定义细化的<code>vendored-openssl</code>版本，以及依赖<code>openssl-srs</code></li></ol><pre class="language-none"><code class="language-none">功能: cfg定义对应的openssl版本绑定路径: src&#x2F;openssl_binding.rs&#x2F;fn create_openssl_server功能: 定义features对应的版本源码位置路径: deps&#x2F;rust-openssl-src&#x2F;src&#x2F;lib.rs&#x2F;fn source_dir</code></pre></div><h2 id="步骤">步骤</h2><div class="story post-story"><ol><li><code>rust-openssl-src</code> 文件存放 openssl的各版本源码</li><li>修改<code>Tlspuffin </code>顶层<code>Cargo.toml</code> 添加版本名称</li><li>根据依赖依次添加版本信息</li><li>在两个路径文件中添加对应的信息</li></ol></div><h2 id="编译其他版本">编译其他版本</h2><div class="story post-story"><p><strong>方式一：</strong></p><p>修改 顶层<code>Cargo.toml</code> 文件中 [features] 项中 default 参数</p><pre class="language-toml" data-language="toml"><code class="language-toml"><span class="token punctuation">[</span><span class="token table class-name">features</span><span class="token punctuation">]</span><span class="token key property">default</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">"sancov_libafl"</span><span class="token punctuation">,</span> <span class="token string">"openssl111j"</span><span class="token punctuation">,</span> <span class="token string">"introspection"</span><span class="token punctuation">]</span></code></pre><p><strong>方式二：</strong></p><p>使用<code>cargo </code> 命令 添加参数</p><pre class="language-shell" data-language="shell"><code class="language-shell">$ cargo run --no-default-features --features openssl102u,sancov_libafl,introspection</code></pre><blockquote><p>sancov_libafl,introspection 必须项</p></blockquote></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Master </category>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Master </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Miui13-mi10s刷twrp和Magisk</title>
       <link href="/posts/9d7955fe/"/>
       <url>/posts/9d7955fe/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言">前言</h2><div class="story post-story"><p>待手机解锁BL锁后,</p><p>尝试开始刷机</p><p>目标:</p><ol><li>刷SkyMi星空包-<code>miui13</code> 官改包纯净版</li><li>刷入<code>Magisk v24.1</code>面具</li><li>以及EDXP,实现绕过<code>ROOT</code>检测</li></ol></div><h2 id="步骤">步骤</h2><div class="story post-story"><h3 id="安装Magisk">安装Magisk</h3><p><font color='red'>magisk root权限的正确获得方法是修补你目前系统的boot，再通过电脑adb命令刷入修补后的boot。</font></p><p><font color='cornflowerblue'>错误方法: 先获得官方root权限，再给magisk manager权限来让其直接刷入magisk来获得root权限。</font></p><blockquote><p>首先要有一个概念，小米11（后文均代指出厂就是安卓11）的手机与之前的小米/红米是不一样的（哪怕后来从10升级了安卓11），小米11使用的是V a/b的分区形式。不同于其他手机，其他手机的启动流程图可以大致参考一下</p></blockquote><p><img src="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><ol><li><p>拿到<code>boot.img</code></p><p>新版本需要先解压payload.bin，然后需要一个工具来二次解包工具在这里 <a href="aili.lanzoux.com/ii2lkkp079g">aili.lanzoux.com/ii2lkkp079g</a>密码:5b8x)<br>这个工具很简单，包里也有readme，大概意思就是把payload.bin放入input，运行exe，到output去找解压出的boot.img包就行</p></li><li><p>手机上安装Magisk Manager</p><p>将刚刚提取到的boot.img移到手机里，打开梯或者更改面具的自定义通道，</p><p>然后回到主界面选择Magisk的安装</p><p><img src="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></li><li><p>Magisk安装</p><p>此处选择并修补一个文件，选择到刚刚移入手机的boot.img，等待修补完成，在同目录下会生成boot_patch.img文件。</p><p>此处不可选择直接安装（推荐），原因后面会说</p></li><li><p>将这个修补的boot_patch.img移回电脑。开始线刷，</p><pre class="language-shell" data-language="shell"><code class="language-shell"><span class="token variable">$fastboot</span> flash boot_a boot_patched.img<span class="token variable">$fastboot</span> flash boot_b boot_patched.img</code></pre></li></ol><p><strong>为什么面具不能选择直接安装（推荐）？</strong></p><p>如果你提前已经获取了官方Root，这一步你当然可以正常运行并且刷好面具。但为了绕过银行等APPRoot检测，使的Magiskhide正常发挥作用。使用官方Root获取到面具，面具接管了你的官方Root，当你使用hide时，面具的Root被隐藏了，官方的Root就恢复了（对该应用）。所以应用能检测出Root，而且很难再把官方Root去隐藏。本教程压根就不刷官方Root直接获取面具Root，所以Magiskhide能正常发挥作用（并且大多数情况是绝对够用的）。<br>你当然也能再刷一个某某银行去Root的模块，但是不麻烦么？明明自带的腿就能发挥作用，你先砍断他的腿在给他接上，这不是多此一举？而且模块越多稳定性啊软件更新啊都是问题。一劳永逸的方法不好么？</p><h3 id="Magisk-隐藏生效">Magisk 隐藏生效</h3><p>[填坑]</p></div>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><div class="story post-story"><p>待手机解锁BL锁后,</p><p>尝试开始刷机</p><p>目标:</p><ol><li>刷SkyMi星空包-<code>miui13</code> 官改包高级包</li><li>刷入<code>Magisk v24.1</code>面具</li><li>以及EDXP,实现绕过<code>ROOT</code>检测</li></ol></div><h2 id="步骤">步骤</h2><div class="story post-story"><h3 id="解BL锁">解BL锁</h3><p><strong>前提条件</strong></p><ul><li>手机与账号绑定168h</li><li>电脑安装好相应的adb驱动</li><li>电脑安装好mifash驱动</li></ul><p>连接手机，手机设置<code>usb调试</code>后, 开启<code>OEM调试</code> 在<code>platform-tools</code>目录下</p><p>先查看是否连接成功</p><pre class="language-shell" data-language="shell"><code class="language-shell">$./adb.exe devices</code></pre><p>进入<code>fastboot</code>模式</p><pre class="language-shell" data-language="shell"><code class="language-shell">$./adb.exe <span class="token function">reboot</span> bootloader</code></pre><p>电脑进入miflash 登录账号后进行解锁</p><h3 id="刷入Twrp">刷入Twrp</h3><p><strong>前提条件</strong></p><ul><li>BL已解锁</li><li>需要PC /笔记本电脑和USB数据线</li><li>电脑安装好相应的adb驱动</li><li>电脑安装好mifash驱动</li><li>提前下载好对应的<code>Twrp</code>版本</li><li>提前做好备份</li><li>手机有足够的电量</li><li>USB Drivers: <a href="https://www.getdroidtips.com/download-latest-xiaomi-usb-drivers/">Xiaomi USB Drivers</a></li><li><a href="https://www.getdroidtips.com/download-adb/">Download ADB and Fastboot</a> and install them on your PC</li></ul><p><strong>TWRP Recovery Details</strong></p><table><thead><tr><th>File Name</th><th>TWRP Recovery</th></tr></thead><tbody><tr><td>Version</td><td>3.6.0</td></tr><tr><td>Support</td><td>Unofficial</td></tr><tr><td>Developer</td><td><a href="https://forum.xda-developers.com/m/theromfan.11952709/">TheRomFan</a></td></tr></tbody></table><p>连接手机，手机设置<code>usb调试</code>后,开启<code>OEM调试</code> 在<code>platform-tools</code>目录下</p><ol><li>进入<code>fastboot</code>模式</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell">$./adb.exe <span class="token function">reboot</span> bootloader</code></pre><ol start="2"><li>查看<code>fastboot</code>设备信息</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell">$./fastboot.exe devices</code></pre><p><strong>Devices with A/B partition scheme</strong></p><p>twrp.img为下载的twrp名称</p><ol start="3"><li>刷入boot ， 临时进入twrp</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell">$./fastboot.exe boot twrp.img</code></pre><ol start="4"><li>将twrp.img文件复制到设备</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell">$ ./adb.exe push twrp.img /sdcard</code></pre><ol start="5"><li>进入到twrp中</li></ol><pre class="language-shell" data-language="shell"><code class="language-shell">$./fastboot.exe oem reboot-recovery</code></pre><ol start="6"><li>选择 <code>Install Recovery Ramdisk</code></li></ol><p><img src="https://s2.loli.net/2022/03/08/gM71anPeEkvd8tO.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/08/gM71anPeEkvd8tO.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Install recovery ramdisk option under TWRP"></p><ol start="7"><li>选择刚刚复制进去的<code>twrp.img</code></li><li>重启recovery</li></ol><h3 id="安装Magisk">安装Magisk</h3><p><font color='red'>magisk root权限的正确获得方法是修补你目前系统的boot，再通过电脑adb命令刷入修补后的boot。</font></p><p><font color='cornflowerblue'>错误方法: 先获得官方root权限，再给magisk manager权限来让其直接刷入magisk来获得root权限。</font></p><blockquote><p>首先要有一个概念，小米11（后文均代指出厂就是安卓11）的手机与之前的小米/红米是不一样的（哪怕后来从10升级了安卓11），小米11使用的是V a/b的分区形式。不同于其他手机，其他手机的启动流程图可以大致参考一下</p></blockquote><p><img src="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/aK9d4kNcVB1AM6b.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><ol><li><p>拿到<code>boot.img</code></p><p>新版本需要先解压payload.bin，然后需要一个工具来二次解包工具在这里 <a href="aili.lanzoux.com/ii2lkkp079g">aili.lanzoux.com/ii2lkkp079g</a>密码:5b8x)<br>这个工具很简单，包里也有readme，大概意思就是把payload.bin放入input，运行exe，到output去找解压出的boot.img包就行</p></li><li><p>手机上安装Magisk Manager</p><p>将刚刚提取到的boot.img移到手机里，打开梯或者更改面具的自定义通道，</p><p>然后回到主界面选择Magisk的安装</p><p><img src="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/03/01/GkaoXV1PgrcYqNM.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p></li><li><p>Magisk安装</p><p>此处选择并修补一个文件，选择到刚刚移入手机的boot.img，等待修补完成，在同目录下会生成boot_patch.img文件。</p><p>此处不可选择直接安装（推荐），原因后面会说</p></li><li><p>将这个修补的boot_patch.img移回电脑。开始线刷，</p><pre class="language-shell" data-language="shell"><code class="language-shell"><span class="token variable">$fastboot</span> flash boot_a boot_patched.img<span class="token variable">$fastboot</span> flash boot_b boot_patched.img</code></pre></li></ol><p><strong>为什么面具不能选择直接安装（推荐）？</strong></p><p>如果你提前已经获取了官方Root，这一步你当然可以正常运行并且刷好面具。但为了绕过银行等APPRoot检测，使的Magiskhide正常发挥作用。使用官方Root获取到面具，面具接管了你的官方Root，当你使用hide时，面具的Root被隐藏了，官方的Root就恢复了（对该应用）。所以应用能检测出Root，而且很难再把官方Root去隐藏。本教程压根就不刷官方Root直接获取面具Root，所以Magiskhide能正常发挥作用（并且大多数情况是绝对够用的）。<br>你当然也能再刷一个某某银行去Root的模块，但是不麻烦么？明明自带的腿就能发挥作用，你先砍断他的腿在给他接上，这不是多此一举？而且模块越多稳定性啊软件更新啊都是问题。一劳永逸的方法不好么？</p><h3 id="Magisk-隐藏生效">Magisk 隐藏生效</h3><p>[填坑]</p></div><h2 id="星空ROM包">星空ROM包</h2><div class="story post-story"><blockquote><p>经过测试后， 星空集成的ROM包与Twrp无法同时存在</p><ol><li>刷入Twrp后， 使用Twrp卡刷ROM后，twrp会自动回滚成官方recovery <font color="red">没刷内核的原因。</font></li><li>星空ROM自动线刷卡刷两种方式，集成Magisk。 所以没有必要使用Twrp</li></ol></blockquote><p>前提：</p><ol><li>安装好usb驱动</li><li>安装好adb命令</li></ol><p>临时使用Twrp方式：</p><pre class="language-shell" data-language="shell"><code class="language-shell">$./fastboot.exe boot twrp.img</code></pre><p>进入Twrp</p><pre class="language-shell" data-language="shell"><code class="language-shell">$./fastboot.exe oem reboot-recovery</code></pre></div>]]></content>
       
       
       <categories>
@@ -1544,9 +1598,9 @@
           
           <category> 机器学习 </category>
           
-          <category> VS2019 </category>
-          
           <category> 机器学习 </category>
+          
+          <category> VS2019 </category>
           
           <category> Tensorflow </category>
           
@@ -1915,9 +1969,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Docker </tag>
             
             <tag> Mysql </tag>
             
@@ -2200,9 +2254,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> Docker </tag>
-            
             <tag> 教程 </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
