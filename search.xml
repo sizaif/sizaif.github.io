@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>模糊测试技术</title>
+      <link href="/posts/d619a3ee/"/>
+      <url>/posts/d619a3ee/</url>
+      
+        <content type="html"><![CDATA[<h1>模糊测试技术</h1><blockquote><p>2022-01-09-</p></blockquote><p>[TOC]</p><p>模糊测试基本流程:  预处理(preprocessing)、输入数据构造(input building)、输入选择(input selection)、评估(evalution)、结果分析(post-fuzzing)</p><p>2013年AFL诞生,基于<font color='red'>覆盖率引导</font>的模糊测试成为主流方向</p><p>AFL 是覆盖率为导向的模糊测试工具,通过插桩的方法,采集输入数据对应的边覆盖率,作为模糊测试种子选取的衡量指标．通过使用进化算法以及精心构造的突变策略</p><h2 id="预处理">预处理</h2><div class="story post-story"><p>工作: <strong>搜集目标相关信息</strong>并制定模糊测试的策略, 为监控目标在测试中的运行状态做必要的准备．通常依赖于<font color='red'>插桩、符号执行以及污点分析</font>这类程序分析技术</p><p>搜集目标相关信息,比如目标的输入数据格式、目标的内部结构,并为监控测试中目标的状态变化做必要的准备．该环节面临的挑战是:使用什么程序分析技术,以及模糊测试究竟需要对目标内部信息有多详细的了解</p><p>根据模糊测试对程序内部信息分析的程度,现代的模糊测试方法可以划分为３类:<font color='orange'>黑盒模糊测试 (blackＧboxfuzzing)、灰盒模糊测试(greyＧboxfuzzing) 和白盒模糊测试(whiteＧboxfuzzing)</font></p><h3 id="1-插桩">1. 插桩:</h3><p>插桩技术通过向目标的代码中合适的位置添加预设好的代码,获得程序的静态或动态执行信息．比如程序的抽象语法树,覆盖率以及函数内变量取值等</p><p><strong>动态插桩</strong></p><p>动态插桩则是在运行的过程中对运行过的代码 进行插桩．比如利用 QEMU等模拟技术,进行动态插桩,可以获得程序运行时的信息,<font color='green'>缺点是资源的开销大</font></p><p><strong>静态插桩</strong></p><p>通过 GCC编译器在汇编语言上插 桩,LLVM在生成的中间语言LLVMIR(low level virtual machine intermediate representation)上插桩．<font color='green'>优点是节省时间、速度快,缺点是依赖于程序源码．</font></p><p><font color='red'>插桩技术的缺点是会带来资源的开销</font></p><h3 id="2-符号执行">2. 符号执行</h3><p>将程序行为的推理归结为逻辑领域的推理,通过构建一个表示程序执行的逻辑公式,可以同时推断一个程序在不同输入上的行为．</p><blockquote><p>该方法可以使模糊测试获得较好的覆盖率,并可以深入到程序深处,探寻可能存在漏洞的区域</p></blockquote><p><strong>静态符号执行</strong></p><p><font color='purple'>静态符号执行通常会因为程序中循环和递归的存在,陷入到路径爆炸中,还会因为路径约束中包含诸如取Hash值等操作,导致约束求解失败．</font>由于存在这2种问题,使用较多的是动态符号执行</p><p><strong>动态符号执行</strong></p><p>动态符号执行通过对程序进行<strong>实际执行与符号化执行</strong>,维护程序的实际状态和符号化状态,<font color='red'>通过将难以求解的约束替换为实际值</font>,缓解了静态符号执行的问题,并按照<font color='red'>深度优先</font>的搜索策略对目标程序进行了探索．</p><p>存在的问题:</p><p>①由于程序分支的存在,路径爆炸的问题仍然存在,程序越复杂, 路径爆炸的问题就越严重．<font color='orange'>解决的一种办法是通过启发式的方法,选择比较重要的路径进行探索．</font></p><p>②虽然动态符号执行使用实际值替换的方法,解决了一 部分静态符号执行无法绕过的约束,但是也会丢失 一些路径,造成探索结果的不完整．</p><p>③所有的符号执行技术都受限于约束求解方法的能力,比如如何处理类似取余操作这样的非线性约束,仍然是符号执行面临的挑战</p><blockquote><p>为了能够将符号执行更好地应用到模糊测试中,近年来诞生了一些工作,</p><p>比如Pangolin 通过 [22] 允许符号执行重用之前的计算结果,</p><p>Intriguer通 [23]过利用字段级的信息,都实现了对符号执行过程的加速．</p><p>ILF[24] 通过使用神经网络,对由符号执行专家生成的大量高质量输入数据进行学习,得到了合适 的模糊测试策略<br>[２２] Huang Heqing,Yao Peisen,Wu Rongxin,et al．Pangolin incremental hybrid fuzzing with polyhedral path abstraction [C]∕∕ Procofthe２０２０IEEE Sympon Security and Privacy (SP)．Piscataway,NJ:IEEE,２０２０:１６１３１６２７<br>[２３] Cho M,Kim S,Kwon T．Intriguer field-level constraint solving for hybrid fuzzing [C]∕∕ procofthe２０１９ ACM SIGSAC Conf on Computer and Communications Security． New York: ACM,２０１９:５１５５３０<br>[２４] He Jingxuan,Balunovi M,AmbroladzeN,et al．Learning to fuzz from symbolic execution with application to smart contracts[C]∕∕Procofthe２０１９ ACM SIGSAC Conf on Computer and Communications Security．New York:A CM, ２０１９:５３１５４８</p></blockquote><h3 id="3-污点分析">3. 污点分析</h3><p>该技术会观测程序中,哪些程序数据受到了预先准备好的污染源(比如输入)的污染,目的是跟踪污染源和汇聚点(比如有敏感信息的程序数据)之间的信息流</p><p><strong>静态污点分析</strong></p><p>静态污点分析不需要程序实际运行,通过对程序静态分析,获得程序控制流图、抽象语法树等信息, 依据数据流以及依赖关系进行污点分析;</p><p><strong>动态污点分析</strong></p><p>动态污点分析则是在程序实际执行的过程中,利用程序的动态执行信息进行污点分析</p><p><font color='red'>动态污点分析检测的可信度更高,但是检测结果是否全面, 取决于动态污点分析对程序的覆盖情况,而且动态污点分析会消耗更多的资源; 静态污点分析又会和符号执行一样,可能会陷入到路径爆炸中,而简化后的静态污点分析又存在着严重的过度污染问题</font></p><blockquote><p>将污点分析技术应用到模糊测试中,并降低其资源消耗是近年来的重要研究方向．比如GREYONE [２５]尝试通过减少污点分析跟踪的对象、降低污点分析的开销、提升模糊测试的检测效率．</p><p>[２５] GanShuitao,ZhangChao,ChenPeng,etal．GREYONE dataflowsensitivefuzzing[C]∕∕Procofthe２９thUSENIX SecuritySymposium．Berkeley,CA:USENIXAssociation, ２０２０:２５７７２５９４</p></blockquote></div><h2 id="基于AFL的模糊测试方法">基于AFL的模糊测试方法</h2><div class="story post-story"><p><img src="https://s2.loli.net/2022/01/09/MzWb9LFIg58cjJm.png" class="lazyload" data-srcset="https://s2.loli.net/2022/01/09/MzWb9LFIg58cjJm.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220109150026279"></p><p><img src="https://s2.loli.net/2022/01/09/g5TyonYkvzxDFui.png" class="lazyload" data-srcset="https://s2.loli.net/2022/01/09/g5TyonYkvzxDFui.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220109150051850"></p><p><img src="https://s2.loli.net/2022/01/09/KxD8LUgl1sQbZC9.png" class="lazyload" data-srcset="https://s2.loli.net/2022/01/09/KxD8LUgl1sQbZC9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220109150137214"></p></div><h2 id="输入构造">输入构造</h2><div class="story post-story"><pre><code>种子获取、种子筛选、种子突变</code></pre><p><font color='cornflowerblue'>具体的挑战是如何在尽量满足语法语义检查的情况下,短时间内生成 大量的输入,用以对目标做全面而深入分析．</font></p><p><font color='green'>首先得到一个数据 $S$ ,然后数据 $S$ 按照一 定的策略进行一定次数的变异,获得大量新数据 $I$ , 最后将$I$输入到被测试对象中进行测试．其中数据 $S$ 被称为种子(seed), $I$ 是测试实际使用的输入数据</font></p></div><h2 id="评估">评估</h2><div class="story post-story"><p>现阶段的研究都会聚焦于模糊测试器在２个指标上的表现:<font color='red'>覆盖率和暴露漏洞平均时间</font></p><p><font color='cornflowerblue'>覆盖率是软件测试中的一个衡量指标,指的是在测试过程中,对象被覆盖到的数目占总数的比例． 通常而言,高覆盖率更可能发现更多的隐藏漏洞,众多研究因此集中在覆盖率提升上</font></p><p>AFL 使用上下文无关的边覆盖率作为评估指标． [13]</p><p>Angora 使用上下文敏感的分支覆盖率．[42]</p><p>VUzzer 使用了块覆盖率替代边覆盖率作为覆盖率评估的对象．[41]</p><p>暴露漏洞平均时间:</p><blockquote><p>暴露 漏 洞 平 均 时 间 被 Böhme４６] AFLGo 选 做 评 估 指 标．在 与 基 准 模 糊 工 具 [４６] AFL 的对比实验中,AFLGo 复现单个漏洞的 [１３] [４６] 时间远比AFL少,这证明了该评估指标的有效性． 此后Hawakeye[４７] 同样使用了这一指标来证明其性 能．Parmesan 在通过sanitizer来发现潜在漏洞的 [６３] 研究工作中,也是用暴露漏洞平均时间作为评估指 标同Angora [４２] 等定向灰盒模糊工具进行比较</p></blockquote></div><h2 id="结果分析">结果分析</h2><div class="story post-story"><p>结果分析发生在模糊测试结束以后,主要目的是对于模糊测试的输出信息进行分析和处理</p></div><h2 id="具体应用场景下的模糊测试">具体应用场景下的模糊测试</h2><div class="story post-story"><h3 id="物联网中的模糊测试">物联网中的模糊测试</h3><p>主要面临两个问题:</p><ol><li>将模糊测试应用到物联网领域问题就是特定物联网设备上运行的程序通常对于其实际硬件的配置有着高度的依赖性．</li></ol><p>​简单的从固件中提取一个用户级别的程序,然后使用模糊测试进行检测,通常是行不通的</p><blockquote><p>Iot-Fuzzer[３０] 认为大多数物联网设备通过其官方移动应用程序进行控制,并且此类应用程序通常包含有与设备进行通信所使用协议的丰富信息,因此通过识别和重用特定于程序的逻辑(比如加密)来改变测试用例(尤其是消息字段),就能够有效地对物联网目标进行模糊测试,而无需依赖于有关其协议规范的任何知识．</p></blockquote><ol start="2"><li><p>物联网设备远远无法满足模糊测试需要的吞吐率</p><blockquote><p>多项研究成果表明物联网设备采用全仿真的系统,可以获得最高的吞吐量,这是因为真实的物联网设备相比于桌面工作站或者服务器要慢得多</p></blockquote></li></ol><h3 id="内核安全中的模糊测试">内核安全中的模糊测试</h3><p>内核模糊测试通常利用暴露出来的系统调用接口和外围接口,从用户空间进入到内核组件中进行模糊测试,以检测内核中可能存在的漏洞</p><p>主要面临的问题:</p><ol><li>Windows内核程序以及很多相关组件的源代码并 不开源,将导致传统的反馈机制不再适用．</li><li>内核中的代码由于存在中断、多线程操作等机制,使得模糊测试变的很复杂．</li><li>内核模糊测试一旦检测到程序的崩溃,将会导致整个操作系统重新启动,极大地影响了模糊测试的效率．</li></ol><blockquote><p>为了克服这些问题,产生了一些专门针对内核安全进行模糊测试的研究,</p><p>比如syzkaller [７０] 是由Google开发的一种以获得高覆盖率为导向的内核 模糊测试工具,目前实际使用比较多,并经常被用于对比实验中．</p><p>Razzer[７１] 是基于syzkaller [７０] 通过使用LLVM和修改后的SVF技术针对内核中存在的数据争用问题进行的模糊测试</p><p>TriforceAFL[３６] AFL [１３]的QEMU模式,在系统模拟器的帮助下,通过跟踪分支信息,对Linux的内核进行模糊测试．</p><p>kAFL[３７] 通过利用Intel提供的进程追踪技术,获取代码运行时的控制流信息,并通过使用Intel的硬件 虚拟特征(VTＧx)提升效率并使得kAFL[３７] 独立于特定的操作系统</p></blockquote><blockquote><p>传统的模糊测试应用到内核模糊测试上将面临着众多的问题,包 括内核态代码的复杂执行环境,以及内核崩溃的处 理问题．另外内核安全面临的威胁来源是不确定的, 可以是外部固件,也可以是第三方开发的驱动程序, 还可以是内核程序自身设计的问题．模糊测试在内 核安全领域的应用还有待进一步的研究．</p></blockquote><p>静态分析或模糊检测技术通常对内存溢出等漏洞有效,而无法挖掘协议实现库的逻辑漏洞.</p><p>通过提取安全协议实现的状态机,能够实现对协议实现的形式化建模.</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Master </category>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> fuzzing </tag>
+            
+            <tag> 论文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Tlspuffin-Docker:changelog</title>
       <link href="/posts/95953aea/"/>
       <url>/posts/95953aea/</url>
@@ -1969,9 +1998,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -2254,9 +2283,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
