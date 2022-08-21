@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Idea Java直接代码测试,跳过jar包编译</title>
+      <link href="/posts/568a27eb/"/>
+      <url>/posts/568a27eb/</url>
+      
+        <content type="html"><![CDATA[<h1>IDEA 直接代码测试， 不使用jar包</h1><blockquote><p>tips</p></blockquote><p>每次写完代码后，都得需要用maven package一下太麻烦啦</p><p>还好我们有强大的IDEA (●’◡’●)</p><h2 id="简单牛刀小试">简单牛刀小试</h2><div class="story post-story"><p><strong>最简单的本地测试</strong></p><p><img src="https://s2.loli.net/2022/08/21/Mjf2Nv1x5b39kWE.png" class="lazyload" data-srcset="https://s2.loli.net/2022/08/21/Mjf2Nv1x5b39kWE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220821213134483"></p><p><font color='red' size='5'>注意program argument 里的路径是相对于<code>working directory</code></font></p><p>然后就可以欢快的代码里直接测试啦</p><p><img src="https://s2.loli.net/2022/08/21/CgkWQ2jApPrziIs.png" class="lazyload" data-srcset="https://s2.loli.net/2022/08/21/CgkWQ2jApPrziIs.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220821213401079"></p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Win </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenSSL 生成公私钥与自签名证书相关知识</title>
       <link href="/posts/210154ee/"/>
       <url>/posts/210154ee/</url>
