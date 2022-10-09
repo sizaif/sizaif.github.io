@@ -949,13 +949,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/IDEA/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/tags/Xml/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
@@ -964,6 +957,13 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/JAXB/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/tags/IDEA/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1476,7 +1476,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1490,7 +1490,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1532,13 +1532,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Microsoft-SEAL/</loc>
-    <lastmod>2022-10-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/SSL/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
@@ -1546,7 +1539,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Springboot/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Microsoft-SEAL/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1554,6 +1547,13 @@
   
   <url>
     <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/JAXB/</loc>
+    <lastmod>2022-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Springboot/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1637,14 +1637,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/Wireshark/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SSL/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SSL/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/Wireshark/</loc>
     <lastmod>2022-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
