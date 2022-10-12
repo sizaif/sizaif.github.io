@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>外置显卡坞-3090ti-内外屏3Dmark跑分测试</title>
+      <link href="/posts/ff9407ae/"/>
+      <url>/posts/ff9407ae/</url>
+      
+        <content type="html"><![CDATA[<h1>显卡坞测试</h1><blockquote><p>笔记本雷电4接口，</p><p>外置显卡坞</p><p>外置显卡： 3090ti 星耀OC</p><p>笔记本配置：</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span>设备名称Zephyrus16<span class="token operator">></span>处理器11th Gen Intel<span class="token punctuation">(</span>R<span class="token punctuation">)</span> Core<span class="token punctuation">(</span>TM<span class="token punctuation">)</span> i7-11800H @ <span class="token number">2</span>.30GHz   <span class="token number">2.30</span> GHz<span class="token operator">></span>机带 RAM<span class="token number">40.0</span> GB <span class="token punctuation">(</span><span class="token number">39.7</span> GB 可用<span class="token punctuation">)</span><span class="token operator">></span>系统类型<span class="token number">64</span> 位操作系统, 基于 x64 的处理器<span class="token operator">></span>笔和触控没有可用于此显示器的笔或触控输入</code></pre><p>windows版本</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token operator">></span>版本Windows <span class="token number">11</span> 专业版<span class="token operator">></span>版本22H2<span class="token operator">></span>安装日期‎2022/‎10/‎4<span class="token operator">></span>操作系统版本<span class="token number">22621.525</span><span class="token operator">></span>体验Windows Feature Experience Pack <span class="token number">1000.22634</span>.1000.0</code></pre><p><img src="https://s2.loli.net/2022/10/12/fG5D2sgaIwMmUuE.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/fG5D2sgaIwMmUuE.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012144844019"></p><p><img src="https://s2.loli.net/2022/10/12/SIeVkbohKYPQlG7.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/SIeVkbohKYPQlG7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012151304216"></p><p><img src="https://s2.loli.net/2022/10/12/5XhCx4I8U7EvPMo.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/5XhCx4I8U7EvPMo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012151229453"></p></blockquote><h2 id="3dmark跑分">3dmark跑分</h2><div class="story post-story"><h3 id="Time-Spy-Extreme-4K">Time Spy Extreme-4K</h3><p><strong>4K Dircetx12</strong></p><h4 id="外接4k显示器">外接4k显示器</h4><p><img src="https://s2.loli.net/2022/10/12/YkmXDPAJGlcrdV7.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/YkmXDPAJGlcrdV7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012143152746"></p><blockquote><p><img src="https://s2.loli.net/2022/10/12/MklrJjtnp9A1y2T.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/MklrJjtnp9A1y2T.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012155839193"></p><p><a href="https://view.inews.qq.com/a/20220615A04T5I00">https://view.inews.qq.com/a/20220615A04T5I00</a></p><p>在3DMark的Time Spy Extreme（4K渲染分辨率）测试中，影驰RTX 3090 Ti星曜OC取得了9813分的成绩，其中显卡分数为11199。</p><p><strong>大约损耗：</strong> <font color='orange'>(11199-9812)/11199 = 12%</font></p></blockquote><h3 id="Fire-Strike-Ultra-4K">Fire Strike Ultra-4K</h3><p><strong>4k DirectX 11</strong></p><h4 id="外接4k显示器-2">外接4k显示器</h4><p><img src="https://s2.loli.net/2022/10/12/BcJa3Lz4WtEiZoy.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/BcJa3Lz4WtEiZoy.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012144610742"></p><blockquote><p><img src="https://s2.loli.net/2022/10/12/3PNysbjr62dfH7m.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/3PNysbjr62dfH7m.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012155929127"></p><p><a href="https://view.inews.qq.com/a/20220615A04T5I00">https://view.inews.qq.com/a/20220615A04T5I00</a></p><p>在3DMark的Fire Strike Ultra（4K渲染分辨率）测试项目中，影驰RTX 3090 Ti星曜OC取得了14159分的成绩，其中显卡分数为14158。</p><p><font color='orange'>大约损耗：（14158-11336)/14158 = 20%</font></p></blockquote><h3 id="Port-Royal-4K">Port Royal-4K</h3><h4 id="外接4k显示器-3">外接4k显示器</h4><p><img src="https://s2.loli.net/2022/10/12/xBEa4F1QCltSjNU.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/xBEa4F1QCltSjNU.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012145903471"></p><h3 id="Time-Spy-2K">Time Spy- 2K</h3><h4 id="外接4k显示器-4">外接4k显示器</h4><p><img src="https://s2.loli.net/2022/10/12/qWxdOTpiQkSunmP.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/qWxdOTpiQkSunmP.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-123"></p><blockquote><p>(21784-17445)/21784 = 19.9%</p></blockquote><h4 id="内屏">内屏</h4><p><img src="https://s2.loli.net/2022/10/12/2UwszlBEnO9Kc8v.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/2UwszlBEnO9Kc8v.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012154518326"></p><blockquote><p><a href="https://view.inews.qq.com/a/20220615A04T5I00">https://view.inews.qq.com/a/20220615A04T5I00</a></p><p>在3DMark的Time Spy（2K渲染分辨率）测试中，影驰RTX 3090 Ti星曜OC取得了19449分的成绩，其中显卡分数为21784。</p><p><font color='orange'>性能损耗：(21784-12295) /21784 = 43%</font></p></blockquote><h3 id="Fire-Strike-2K">Fire Strike-2K</h3><h4 id="外接4k显示器-5">外接4k显示器</h4><p><img src="https://s2.loli.net/2022/10/12/8o1admUlvIuxE9T.png" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/8o1admUlvIuxE9T.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221012161740384"></p><blockquote><p>在3DMark的Fire Strike Extreme（2K渲染分辨率）测试项目中，影驰RTX 3090 Ti星曜OC取得了25551分的成绩，其中显卡分数为27375。</p><p><font color='orange'>损耗：(27375-17445)/27375 = 36%</font></p></blockquote><h4 id="内屏-2">内屏</h4><p><img src="https://s2.loli.net/2022/10/12/VQD1ghY3xBqiTOc.jpg" class="lazyload" data-srcset="https://s2.loli.net/2022/10/12/VQD1ghY3xBqiTOc.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="fire-2k-"></p><blockquote><p>在3DMark的Fire Strike Extreme（2K渲染分辨率）测试项目中，影驰RTX 3090 Ti星曜OC取得了25551分的成绩，其中显卡分数为27375。</p><p><font color='orange'>损耗：(27375-16496)/27375 = 39%</font></p></blockquote></div>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 3090ti </tag>
+            
+            <tag> 外置显卡坞 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Idea Java直接代码测试,跳过jar包编译</title>
       <link href="/posts/568a27eb/"/>
       <url>/posts/568a27eb/</url>
@@ -2314,9 +2335,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
@@ -2458,9 +2479,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
