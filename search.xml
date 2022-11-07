@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>C/C++ Void*的理解</title>
+      <link href="/posts/820cea1e/"/>
+      <url>/posts/820cea1e/</url>
+      
+        <content type="html"><![CDATA[<h1>C/C++中Void *的理解</h1><blockquote><p>2022-11-06 16:44:35</p><p>部分内容来自 <a href="https://blog.csdn.net/W_H_M_2018/article/details/111120624">C++中的void*理解</a></p></blockquote><h2 id="1-void-是什么？"><strong>1. void *是什么？</strong></h2><div class="story post-story"><p>语言中，*类型就是指针类型。比如 int *p，double <em>q，虽然是不一样的指针，但是大小却一样sizeof§ == sizeof(q)，其实很容易理解，因为他们都是同一种类型</em>类型的。C语言是强类型的语言。对类型的区分十分严格。那这两个有什么不同点吗？有，+1就不同了，如下：</p><p><img src="https://s2.loli.net/2022/11/07/uTvxpFVm6OzLB24.png" class="lazyload" data-srcset="https://s2.loli.net/2022/11/07/uTvxpFVm6OzLB24.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="b0c4a1d07ca401008676cb3ca8d7c98c"></p><p>也就是对于一个指针而言，如果我们在前面规定了它的类型。那就相当于决定了它的“跳跃力”。“跳跃力”就比如说上面图中int跳了4个字节，但是double跳了8个字节。</p><p>基于这样的理解，我要对void *下定义了：<strong>void * 是一个跳跃力未定的指针</strong></p></div><h2 id="2-void-详解">2. void*详解</h2><div class="story post-story"><h3 id="2-1-void可以指向任何类型的地址，但是带类型的指针不能指向void的地址">2.1 void<em>可以指向任何类型的地址，但是带类型的指针不能指向void</em>的地址</h3><p>正常来说如果两个指针类型不一样的话，两个指针变量是不可以直接相等的。例如int* a, float* b，假如令a = b，会直接发生编译错误，而void<em>指针可以等于任何类型的指针。但是反过来不可以，也就是说一个有类型的指针不能指向一个void</em>类型的变量（哪怕此时void*变量已经指向了一个有类型的地址）。</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">float</span> f <span class="token operator">=</span> <span class="token number">5.5</span><span class="token punctuation">;</span><span class="token keyword">float</span><span class="token operator">*</span> pf <span class="token operator">=</span> <span class="token operator">&amp;</span>f<span class="token punctuation">;</span><span class="token keyword">void</span><span class="token operator">*</span> pv <span class="token operator">=</span> pf<span class="token punctuation">;</span><span class="token keyword">float</span><span class="token operator">*</span> pf2 <span class="token operator">=</span> pv<span class="token punctuation">;</span><span class="token comment">//编译错误，有类型的指针变量不能指向void*变量</span></code></pre><h3 id="2-2-void-指针只有强制类型转换以后才可以正常取值">2.2 void*指针只有强制类型转换以后才可以正常取值</h3><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">float</span> f <span class="token operator">=</span> <span class="token number">5.5</span><span class="token punctuation">;</span>    <span class="token keyword">float</span><span class="token operator">*</span> pf <span class="token operator">=</span> <span class="token operator">&amp;</span>f<span class="token punctuation">;</span>    <span class="token keyword">void</span><span class="token operator">*</span> pv<span class="token punctuation">;</span>    pv <span class="token operator">=</span> pf<span class="token punctuation">;</span> <span class="token comment">//这句是可以的</span>        cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span>pv<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>  <span class="token comment">//编译错误，这样直接对pv取值是错误的</span>    cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token operator">*</span><span class="token punctuation">)</span>pv<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>  <span class="token comment">//强制类型转换后可以取值</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span></code></pre><p>在令pv = pf后，此时pv和pf指向的是同一个地址，值相同，但是两者的类型是不一样的。pf作为浮点型指针，是可以直接取到浮点数的，<strong>但是pv必须要强制类型转换以后才可以取值，也就是说一个void*的指针必须要经过强制类型转换以后才有意义。</strong></p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">float</span> f <span class="token operator">=</span> <span class="token number">5.5</span><span class="token punctuation">;</span>    <span class="token keyword">float</span><span class="token operator">*</span> pf <span class="token operator">=</span> <span class="token operator">&amp;</span>f<span class="token punctuation">;</span>    <span class="token keyword">void</span><span class="token operator">*</span> pv<span class="token punctuation">;</span>    pv <span class="token operator">=</span> pf<span class="token punctuation">;</span>    cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token operator">*</span><span class="token punctuation">)</span>pv<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>  <span class="token comment">//强制类型转换后可以取值,值为5.5</span>    cout<span class="token operator">&lt;&lt;</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span><span class="token punctuation">)</span>pv<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//强制类型转换，值为1085276160</span>    cout<span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token operator">*</span><span class="token punctuation">)</span>pv<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//取值后再次类型转换，值为5</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span></code></pre><p>如果把一个指向float<em>的值的void</em>指针，强制转换成int*也是不对的。也就是说地址<strong>保存了什么样的变量，就要转化成哪种类型的指针</strong>，否则就会出错。</p><h3 id="2-3-void-指针变量和普通指针一样可以通过等于0或者NULL来初始化，表示一个空指针">2.3 void*指针变量和普通指针一样可以通过等于0或者NULL来初始化，表示一个空指针</h3><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span><span class="token operator">*</span> pv <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token keyword">void</span><span class="token operator">*</span> pv2 <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>cout<span class="token operator">&lt;&lt;</span>pv <span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//值为0x0</span>cout<span class="token operator">&lt;&lt;</span>pv2<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//值为0x0</span></code></pre><h3 id="2-4-当void-指针-作为函数的输入和输出-时，表示可以-接受任意类型的输入指针和输出任意类型的指针">**2.4 当void*指针*<em>作为函数的输入和输出*<em>时，表示可以*<em>接受任意类型的输入指针和输出任意类型的指针*</em></em></em></h3><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> a<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token keyword">return</span> a；<span class="token punctuation">&#125;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token keyword">static</span> <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>    <span class="token keyword">int</span><span class="token operator">*</span> pi <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span>    cout<span class="token operator">&lt;&lt;</span>pi<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>              <span class="token comment">//值为0x100001060</span>    cout<span class="token operator">&lt;&lt;</span><span class="token function">test</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>        <span class="token comment">//值为0x100001060</span>    cout<span class="token operator">&lt;&lt;</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>pi<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token comment">//值为0x100001060</span><span class="token punctuation">&#125;</span></code></pre><p>如果函数的输入类型为void*，在调用时由于是值传递，所以函数实际接收到的应该就是一个地址值。这个值可以是任意类型。</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span><span class="token keyword">int</span><span class="token operator">*</span> pi <span class="token operator">=</span> <span class="token operator">&amp;</span>a<span class="token punctuation">;</span><span class="token keyword">void</span><span class="token operator">*</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    <span class="token keyword">return</span> pi<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    cout<span class="token operator">&lt;&lt;</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>        <span class="token comment">//值为0x100001060</span><span class="token punctuation">&#125;</span></code></pre><p>输出时同样也是值传递，因此可以输出任意类型指针指向的地址。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+            <tag> void* </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>外置显卡坞-3090ti-内外屏3Dmark跑分测试</title>
       <link href="/posts/ff9407ae/"/>
       <url>/posts/ff9407ae/</url>
@@ -63,7 +92,7 @@
           
           <category> 技术向 </category>
           
-          <category> SSl </category>
+          <category> SSL </category>
           
       </categories>
       
@@ -90,7 +119,7 @@
           
           <category> 技术向 </category>
           
-          <category> SSl </category>
+          <category> SSL </category>
           
       </categories>
       
@@ -2335,9 +2364,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -2479,9 +2508,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -2630,9 +2659,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -2915,9 +2944,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
