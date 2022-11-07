@@ -1348,13 +1348,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/AFL/</loc>
-    <lastmod>2022-11-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/tags/fuzzing/</loc>
     <lastmod>2022-11-07</lastmod>
     <changefreq>daily</changefreq>
@@ -1383,6 +1376,13 @@
   </url>
   
   <url>
+    <loc>https://www.sizaif.com/tags/AFL/</loc>
+    <lastmod>2022-11-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/tags/LLVM/</loc>
     <lastmod>2022-11-07</lastmod>
     <changefreq>daily</changefreq>
@@ -1404,14 +1404,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/typora/</loc>
+    <loc>https://www.sizaif.com/tags/docker/</loc>
     <lastmod>2022-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/docker/</loc>
+    <loc>https://www.sizaif.com/tags/typora/</loc>
     <lastmod>2022-11-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
