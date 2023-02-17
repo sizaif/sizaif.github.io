@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Linux上配置Clash代理</title>
+      <link href="/posts/47973370/"/>
+      <url>/posts/47973370/</url>
+      
+        <content type="html"><![CDATA[<h1>在linux上配置Clash代理</h1><blockquote><p>Clash for linux github地址： <a href="https://github.com/Dreamacro/clash/releases">https://github.com/Dreamacro/clash/releases</a></p></blockquote><h2 id="下载软件包">下载软件包</h2><div class="story post-story"><ol><li><p>直接打开连接并下载对应的版本<code>clash-linux-amd64-XXX.gz)</code></p></li><li><p>或者在终端上用<code>wget</code>下载</p><pre class="language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span> <span class="token operator">&amp;&amp;</span> <span class="token function">mkdir</span> clash$ <span class="token builtin class-name">cd</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> clash<span class="token function">wget</span> -N --no-check-certificate https://github.com/Dreamacro/clash/releases/download/v1.13.0/clash-linux-amd64-v3-v1.13.0.gz</code></pre></li><li><p><code>gunzip clash-linux-amd64-v3-v1.13.0.gz</code></p></li><li><p><code>mv  clash-linux-amd64-v3-v1.13.0.gz clash</code></p></li><li><p><code>chmod +x clash</code></p></li></ol></div><h2 id="根据代理提供商提供的订阅链接下载代理配置文件">根据代理提供商提供的订阅链接下载代理配置文件</h2><div class="story post-story"><blockquote><p><code>https://XXXXX </code> 是订阅链接</p></blockquote><pre class="language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">wget</span> -O config.yaml https://XXXXX </code></pre></div><h2 id="启动Clash">启动Clash</h2><div class="story post-story"><pre class="language-bash" data-language="bash"><code class="language-bash">./clash -d <span class="token builtin class-name">.</span></code></pre></div><h2 id="配置Clash">配置Clash</h2><div class="story post-story"><p>浏览器访问<code>http://clash.razord.top/#/proxies</code> 进行配置</p><p>设置<code>socks5</code> 或<code>https/http</code>端口</p></div><h2 id="终端配置代理使其生效">终端配置代理使其生效</h2><div class="story post-story"><blockquote><p><code>XXX</code>为上一步设置的端口</p><p><code>socks5</code>为设置的<code>socks5</code>代理通道， 如果为<code>http</code>则对应的修改即可</p></blockquote><pre class="language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">all_proxy</span><span class="token operator">=</span>socks5://127.0.0.1:XXXX</code></pre></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Clash </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> Clash </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Llvm 创建外部调用函数方法</title>
       <link href="/posts/dbb96a4a/"/>
       <url>/posts/dbb96a4a/</url>
@@ -2509,9 +2540,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
             <tag> OpenSSL </tag>
             
@@ -2581,9 +2612,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2616,9 +2647,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
             <tag> OpenSSL </tag>
             
@@ -2651,9 +2682,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2723,9 +2754,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2789,9 +2820,9 @@
       
         <tags>
             
-            <tag> SSL </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> SSL </tag>
             
         </tags>
       
@@ -2820,11 +2851,11 @@
             
             <tag> Java </tag>
             
-            <tag> 笔记 </tag>
-            
             <tag> Xml </tag>
             
             <tag> JAXB </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
