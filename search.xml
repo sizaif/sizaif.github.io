@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>Vscode针对docker手动安装vscode Server</title>
+      <link href="/posts/606d0466/"/>
+      <url>/posts/606d0466/</url>
+      
+        <content type="html"><![CDATA[<h1>vscode针对docker手动安装vscode server</h1><p>当vscode版本更新后， 需要重新安装vscode server， 由于众所周知的原因，经常下载不下来，所以采用手动安装的方式</p><p>step1. 进入容器内部</p><pre class="language-bash" data-language="bash"><code class="language-bash">$ docker <span class="token builtin class-name">exec</span> -it <span class="token operator">&lt;</span>containerid<span class="token operator">></span> /bin/bash$ <span class="token builtin class-name">cd</span> ~/.vscode-server/bin</code></pre><p>step2. 获得vscode 版本信息</p><p><code>$&#123;commit_id&#125; = ee2b180d582a7f601fa6ecfdad8d9fd269ab1884</code></p><p>帮助-&gt;help</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp">版本<span class="token operator">:</span> <span class="token number">1.76</span><span class="token punctuation">.</span><span class="token number">2</span> <span class="token punctuation">(</span>user setup<span class="token punctuation">)</span>提交<span class="token operator">:</span> ee2b180d582a7f601fa6ecfdad8d9fd269ab1884日期<span class="token operator">:</span> <span class="token number">2023</span><span class="token operator">-</span><span class="token number">03</span><span class="token operator">-</span><span class="token number">14</span>T17<span class="token operator">:</span><span class="token number">55</span><span class="token operator">:</span><span class="token number">54.936</span>ZElectron<span class="token operator">:</span> <span class="token number">19.1</span><span class="token punctuation">.</span><span class="token number">11</span>Chromium<span class="token operator">:</span> <span class="token number">102.0</span><span class="token punctuation">.</span><span class="token number">5005.196</span>Node<span class="token punctuation">.</span>js<span class="token operator">:</span> <span class="token number">16.14</span><span class="token punctuation">.</span><span class="token number">2</span>V8<span class="token operator">:</span> <span class="token number">10.2</span><span class="token punctuation">.</span><span class="token number">154.26</span><span class="token operator">-</span>electron<span class="token punctuation">.</span><span class="token number">0</span>OS<span class="token operator">:</span> Windows_NT x64 <span class="token number">10.0</span><span class="token punctuation">.</span><span class="token number">22621</span>沙盒化<span class="token operator">:</span> No</code></pre><p>step3. 手动下载</p><pre class="language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">wget</span> https://vscode.cdn.azure.cn/stable/<span class="token variable">$&#123;commit_id&#125;</span>/vscode-server-linux-x64.tar.gz$ <span class="token function">tar</span> -zxvf vscode-server-linux-x64.tar.gz$ <span class="token function">mv</span> vscode-server-linux-x64 <span class="token variable">$&#123;commit_id&#125;</span></code></pre><p>至此重新启动vscode 连接容器</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vscode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用汇编代码总结</title>
+      <link href="/posts/5ce1dce5/"/>
+      <url>/posts/5ce1dce5/</url>
+      
+        <content type="html"><![CDATA[<pre class="language-cpp" data-language="cpp"><code class="language-cpp">cmp a<span class="token punctuation">,</span>b <span class="token comment">// 比较a与b</span>mov a<span class="token punctuation">,</span>b <span class="token comment">// 把b值送给a值，使a=b</span>ret <span class="token comment">// 返回主程序</span>nop <span class="token comment">// 无作用，英文（no operation）简写，意思“do nothing”（机器码90）</span>call <span class="token comment">// 调用子程序，子程序以ret结尾</span>je 或jz <span class="token comment">// 相等则跳（机器码是74或84）</span>jne 或jnz <span class="token comment">// 不相等则跳（机器码是75或85）</span>jmp <span class="token comment">// 无条件跳（机器码是EB）</span>jb <span class="token comment">// 若小于则跳</span>ja <span class="token comment">// 若大于则跳</span>jg <span class="token comment">// 若大于则跳</span>jge <span class="token comment">// 若大于等于则跳</span>jl <span class="token comment">// 若小于则跳</span>pop xxx <span class="token comment">// xxx出栈</span>push xxx <span class="token comment">// xxx压栈</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 汇编 </tag>
+            
+            <tag> 二进制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux上配置Clash代理</title>
       <link href="/posts/47973370/"/>
       <url>/posts/47973370/</url>
@@ -2540,9 +2596,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> OpenSSL </tag>
             
@@ -2612,9 +2668,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2647,9 +2703,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> OpenSSL </tag>
             
@@ -2682,9 +2738,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2754,9 +2810,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> GnuTLS </tag>
             
@@ -2820,9 +2876,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
@@ -2851,11 +2907,11 @@
             
             <tag> Java </tag>
             
+            <tag> 笔记 </tag>
+            
             <tag> Xml </tag>
             
             <tag> JAXB </tag>
-            
-            <tag> 笔记 </tag>
             
         </tags>
       
