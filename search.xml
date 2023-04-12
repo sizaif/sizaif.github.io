@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Linux下从系统路径下迁移docker容器与镜像</title>
+      <link href="/posts/eae714ed/"/>
+      <url>/posts/eae714ed/</url>
+      
+        <content type="html"><![CDATA[<h1>从系统路径下迁移docker容器和镜像</h1><pre class="language-cpp" data-language="cpp"><code class="language-cpp">sudo systemctl stop docker# 先停止dockersudo mkdir docker_data #路径是 <span class="token operator">/</span>home<span class="token operator">/</span>jq<span class="token operator">/</span>docker_datasudo rsync <span class="token operator">-</span>aP <span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker <span class="token operator">/</span>home<span class="token operator">/</span>jq<span class="token operator">/</span>docker_data # rsync是复制数据，作用和cp相同sudo mv <span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker <span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker<span class="token punctuation">.</span>bak #原来数据做备份sudo ln <span class="token operator">-</span>s <span class="token operator">/</span>home<span class="token operator">/</span>jq<span class="token operator">/</span>docker_data<span class="token operator">/</span>docker <span class="token operator">/</span>var<span class="token operator">/</span>lib<span class="token operator">/</span>docker #软连接sudo systemctl daemon<span class="token operator">-</span>reload #重新加载配置sudo systemctl restart docker #重新启动docker</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vscode针对docker手动安装vscode Server</title>
       <link href="/posts/606d0466/"/>
       <url>/posts/606d0466/</url>
@@ -1425,9 +1452,9 @@
       
         <tags>
             
-            <tag> LTE </tag>
-            
             <tag> ASN.1 </tag>
+            
+            <tag> LTE </tag>
             
         </tags>
       
@@ -2480,9 +2507,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
@@ -2624,9 +2651,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
