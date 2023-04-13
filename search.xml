@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Linux 编译Binutils2.4</title>
+      <link href="/posts/1b7755b0/"/>
+      <url>/posts/1b7755b0/</url>
+      
+        <content type="html"><![CDATA[<h1>Ubuntu 编译安装 Binutils2.4版本</h1><p>默认的Binutils版本为</p><pre class="language-bash" data-language="bash"><code class="language-bash">binutils:  Installed: <span class="token number">2.34</span>-6ubuntu1.4  Candidate: <span class="token number">2.34</span>-6ubuntu1.4  Version table: *** <span class="token number">2.34</span>-6ubuntu1.4 <span class="token number">500</span>        <span class="token number">500</span> http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal-updates/main amd64 Packages        <span class="token number">500</span> http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages        <span class="token number">100</span> /var/lib/dpkg/status     <span class="token number">2.34</span>-6ubuntu1 <span class="token number">500</span>        <span class="token number">500</span> http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal/main amd64 Package</code></pre><p>默认的2.34 包含的 <code>Objdump</code>,<code>gprof</code>,<code>BDF</code> ,<code>lld</code>,等是不兼容最新的<code>DWARF-V5</code>的</p><p>而<code>Clang-14</code>  -g 生成的编译信息是以<code>DWARF-V5</code> 最新版本为基础的，</p><p>所以就会出现如下错误：</p><pre class="language-bash" data-language="bash"><code class="language-bash">DWARF error: invalid or unhandled FORM value: 0x25</code></pre><p>困扰许久</p><ol><li><p>一种解决方式是clang++ 等最新编译器编译时添加 <code>-gdwarf-4</code>  参数使其使用<code>DWARF</code>V4版本。</p><p>但这种方法有事并不可行</p></li></ol><p>​<a href="https://blog.csdn.net/sizaif/article/details/129021502">ASAN 检测内存错误 debug</a></p><p>索性就安装最新的版本吧！ Binutils2.4 是支持 <code>DWARF-V5</code>的</p><p><strong>建议一下命令使用带有管理员用户执行，若没有权限，则在命令前加<code>sudo </code></strong></p><ol><li><p>下载源码：</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.gz</code></pre></li><li><p>解压编译</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf XXXX<span class="token builtin class-name">cd</span> XXXX./Configure --prefix<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>/build-install<span class="token function">make</span> <span class="token function">make</span> <span class="token function">install</span></code></pre></li><li><p>如果Configure时提示 缺少GMP4.2+,MPFR3,1,0+ 之类的依赖的话</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> ftp://gcc.gnu.org/pub/gcc/infrastructure/gmp-6.1.0.tar.bz2<span class="token function">wget</span> ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-3.1.4.tar.bz2<span class="token function">wget</span> ftp://gcc.gnu.org/pub/gcc/infrastructure/mpc-1.0.3.tar.gz</code></pre><p>分别解压 进入对应目录</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -jxvf XXX<span class="token builtin class-name">cd</span> XXX./Configure<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span></code></pre></li><li><p>WARNING: `makeinfo’ is missing on your system.  You should only need it if</p><p>之类的错误</p><p>安装：</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> texinfo<span class="token function">apt-get</span> <span class="token function">install</span> flex<span class="token function">apt-get</span> <span class="token function">install</span> bison</code></pre></li><li><p>如果出现 <code>fatal error: sys/cdefs.h: No such file or directory</code></p><blockquote><p>在64位的<a href="https://so.csdn.net/so/search?q=Ubuntu&amp;spm=1001.2101.3001.7020">Ubuntu</a>如果执行X86平台32位编译，gcc -m32 -o x  x.c会报错：fatal error: sys/cdefs.h: No such file or directoryapt-get install libc6-dev-i386</p></blockquote><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-get</span> <span class="token function">install</span> libc6-dev-i386</code></pre></li></ol><p>上述问题都解决后， 建议删除掉当前目录， 重新解压<code>Binutils</code>， 重新执行:</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf XXXX<span class="token builtin class-name">cd</span> XXXX./Configure --prefix<span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>/build-install<span class="token function">make</span> <span class="token function">make</span> <span class="token function">install</span></code></pre><p>执行完成后 ， 会在当前目录下的<code>/build-install/bin</code>目录中出现新安装的<code>gprof,objdump,lld </code>等</p><p>使用链接命令进行连接</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#例如:</span><span class="token function">ln</span> -s <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">pwd</span><span class="token variable">`</span></span>/bin/gprof /usr/bin/gprof24</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Binutils </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux下从系统路径下迁移docker容器与镜像</title>
       <link href="/posts/eae714ed/"/>
       <url>/posts/eae714ed/</url>
@@ -1452,9 +1481,9 @@
       
         <tags>
             
-            <tag> ASN.1 </tag>
-            
             <tag> LTE </tag>
+            
+            <tag> ASN.1 </tag>
             
         </tags>
       
@@ -2507,9 +2536,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -2651,9 +2680,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
