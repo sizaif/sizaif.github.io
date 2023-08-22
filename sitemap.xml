@@ -870,14 +870,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/posts/fabe9f4f/</loc>
+    <loc>https://www.sizaif.com/posts/1c98e054/</loc>
     
     <lastmod>2021-08-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/posts/1c98e054/</loc>
+    <loc>https://www.sizaif.com/posts/fabe9f4f/</loc>
     
     <lastmod>2021-08-14</lastmod>
     
@@ -1285,6 +1285,13 @@
   </url>
   
   <url>
+    <loc>https://www.sizaif.com/tags/USIM/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/tags/object-Object/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1321,13 +1328,6 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/Azure-AD/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/tags/USIM/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
