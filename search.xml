@@ -2565,9 +2565,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
@@ -2709,9 +2709,9 @@
           
           <category> 机器学习 </category>
           
-          <category> OpenCV </category>
-          
           <category> Tensorflow </category>
+          
+          <category> OpenCV </category>
           
       </categories>
       
@@ -2860,9 +2860,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
             <tag> Mysql </tag>
             
@@ -3145,9 +3145,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 教程 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       

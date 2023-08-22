@@ -949,13 +949,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/github%E8%AE%A1%E5%88%92/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/tags/%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
@@ -977,7 +970,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://www.sizaif.com/tags/github%E8%AE%A1%E5%88%92/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -985,6 +978,13 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/Docker/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1222,14 +1222,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc>
+    <loc>https://www.sizaif.com/tags/TSW2/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/TSW2/</loc>
+    <loc>https://www.sizaif.com/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1292,6 +1292,13 @@
   </url>
   
   <url>
+    <loc>https://www.sizaif.com/tags/object-Object/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/tags/python/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1300,13 +1307,6 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/soap/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/tags/object-Object/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1411,13 +1411,6 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/tags/AFL/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/tags/make/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1426,6 +1419,13 @@
   
   <url>
     <loc>https://www.sizaif.com/tags/ubuntu/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/tags/AFL/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1595,28 +1595,7 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Python/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.sizaif.com/navigation/categories/%E5%BB%BA%E7%AB%99%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
-    <lastmod>2023-08-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1630,7 +1609,28 @@
   </url>
   
   <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Hexo/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-08-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Python/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1686,14 +1686,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/JAXB/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Js/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Js/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E7%AC%94%E8%AE%B0/JAXB/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1819,14 +1819,14 @@
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/OpenCV/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.sizaif.com/navigation/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Tensorflow/</loc>
+    <loc>https://www.sizaif.com/navigation/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/OpenCV/</loc>
     <lastmod>2023-08-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
