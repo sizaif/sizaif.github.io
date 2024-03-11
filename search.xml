@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Cmake 使用过程中的一些记录</title>
+      <link href="/posts/a49ee1f7/"/>
+      <url>/posts/a49ee1f7/</url>
+      
+        <content type="html"><![CDATA[<h1>Cmake 使用过程中的一些记录</h1><h2 id="写在前面">写在前面</h2><div class="story post-story"><p>终于还是用起来cmake了， 先前都是手撕makefiles， 直接用makefiles编写项目文件</p><p>但终归还是太麻烦，需要考虑各种依赖关系，可以说是事无巨细，后来转到windows上做项目开发，才发现</p><p>cmake特别好用，真的能省很多事</p></div><h2 id="参考">参考</h2><div class="story post-story"><p>优雅的本地开发，远程linux环境调试，Clion决绝子</p><p><a href="https://blog.csdn.net/jiuri1005/article/details/128431491">本地clion开发/优雅地调试，并实时同步远程服务器</a></p></div><h2 id="Cmake-Example">Cmake-Example</h2><div class="story post-story"><p><a href="https://github.com/sizaif/cmake-examples">cmake-examples</a></p><p>一个非常好的github开源库，作为cmake初学者非常适用</p></div><h2 id="记录常用到的cmake用法">记录常用到的cmake用法</h2><div class="story post-story"><h3 id="include-directories">include_directories</h3><p>设定本项目引入的头文件路径，<code>$&#123;PROJECT_SOURCES&#125;</code> 可以通过<code>set()</code> 来设置；</p><pre class="language-none"><code class="language-none">include_directories($&#123;PROJECT_SOURCES&#125;&#x2F;include) </code></pre><p>当引入头文件路径后，在项目编写时就可以非常优雅的引入了</p><p>例如： 项目结构如下</p><pre class="language-none"><code class="language-none">main-project:include:basic:headerA.hpro:plus:headerB.hsrc:main.cpp</code></pre><p>假设<code>headerB</code>需要引入<code>headerA.h</code>头文件， 一般的写法是<code>include &quot;../../basic/headerA.h&quot;</code> 这种相对路径</p><p>当我们设置<code>include_directories($&#123;main_project_path&#125;/include)</code>后</p><p>只需要在<code>headerB.h</code>中写<code>include &quot;basic/headerA.h&quot; </code>就可以了，系统会自动帮我们找到对于的路径下的文件</p><p>那么在<code>main.cpp</code>中引入头文件时</p><p>只需要编写:</p><pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"basic/headerA.h"</span></span><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"pro/plus/headerB.h"</span></span></code></pre><h3 id="target-link-libraries-与-target-include-directories">target_link_libraries 与 target_include_directories</h3><p><code>target_link_libraries </code></p><p><code>target_include_directories</code></p><p>这两个的用法都是在设定生成库文件或者可执行文件标识之后：</p><p><code>add_library / add_executable</code></p><pre class="language-none"><code class="language-none"># 编译生成静态库&#x2F;动态库add_library(&lt;name&gt; STATIC&#x2F;SHARED &lt;sourcefiles&gt;)# 库的头文件搜索路径&#x2F; 依赖项# 等价于 makefile中的 -L&#x2F;pathtarget_include_directories(&lt;name&gt; &lt;option&gt; &lt;path&gt;)target_link_libraries(&lt;name&gt; &lt;option&gt; &lt;deplibraries&gt;)</code></pre><blockquote><pre class="language-none"><code class="language-none">&gt;target_include_directories(target  [SYSTEM] [BEFORE]  &lt;INTERFACE|PUBLIC|PRIVATE&gt; [items1...]  [&lt;INTERFACE|PUBLIC|PRIVATE&gt; [items2...] ...])</code></pre><p>其中，<code>target</code> 是目标名称，可以是库或可执行文件的名称。<br><code>SYSTEM</code> 表示这些头文件是系统头文件，<code>BEFORE</code> 表示这些路径将被添加到其他路径之前。<code>INTERFACE</code>、<code>PUBLIC</code> 和 <code>PRIVATE</code> 是指定这些路径的可见性。它们的含义如下：</p><ul><li><code>INTERFACE</code>：这些路径只会被添加到目标的接口中，不会被添加到目标自身的编译选项中。</li><li><code>PUBLIC</code>：这些路径会被添加到目标自身的编译选项中，同时也会被添加到目标的接口中。</li><li><code>PRIVATE</code>：这些路径只会被添加到目标自身的编译选项中，不会被添加到目标的接口中。<br><code>items</code> 是头文件搜索路径，可以是绝对路径或相对路径。如果是相对路径，会相对于当前 CMakeLists.txt 文件所在的目录进行解析。</li></ul></blockquote><h3 id="Subject">Subject</h3><p>项目结构：</p><pre class="language-none"><code class="language-none">main_projectsub_project_A:project_A_filesCMakeLists.txtsub_project_B:    project_B_filesCMakeLists.txtCMakeLists.txt</code></pre><p><code>sub_projectA</code> 与<code>sub_projectB</code>都是<code>main_project</code>的依赖库</p><p>其中<code>projectB</code>又依赖于<code>projectA</code></p><p>在<code>main_project</code>下的<code>CMakeLists.txt</code>中</p><p>可以通过一下命令，给子subject传参， 以及添加子项目</p><pre class="language-none"><code class="language-none">set(PROJECT_SOURCES $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;&#x2F;path&#x2F;to&#x2F;proejctA)add_subdirectory(path&#x2F;to&#x2F;project)</code></pre><p>在<code>sub_projectB</code>中通过主项目的传参，拿到<code>sub_projectA</code>的路径，就可以</p><p>设置<code>include_directories</code> <code>target_link_libraries</code>  <code>target_include_directories</code> 了</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术向 </category>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> Cmake </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C/C++ 使用Gprof分析运行性能测试</title>
       <link href="/posts/8162d461/"/>
       <url>/posts/8162d461/</url>
@@ -2565,9 +2594,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
@@ -2709,9 +2738,9 @@
           
           <category> 机器学习 </category>
           
-          <category> Tensorflow </category>
-          
           <category> OpenCV </category>
+          
+          <category> Tensorflow </category>
           
       </categories>
       
