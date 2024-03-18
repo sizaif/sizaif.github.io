@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>搭建影视库试试手</title>
+      <link href="/posts/74e6b323/"/>
+      <url>/posts/74e6b323/</url>
+      
+        <content type="html"><![CDATA[<p>我承认我组会的时候开小差了，在如此高压的情况下，我竟在神游~。脑袋里突然想到我之前刷知乎看到的群晖NAS之类的相关话题，然后就有了弄个媒体库的想法，顺便整理整理我的设备上PT做的种子。说白了NAS就是一个24H不关机的共享服务器嘛，正好我的工作机器就是24H不关机，在脑海里大概浮现了预设的画面：</p><p>对媒体库的预设期望：</p><ol><li><p>能够自动整理做种的影片</p><p>（虽然PT下载的时候大概分了类，但是冰冷的文件夹太冷漠了）</p></li><li><p>对做种的资源进行自动刮削，类似于爱奇艺这样的视频网站，能看电影或电视剧的详细信息，简介啥的</p><p>(毕竟自己手动去查信息真的太麻烦了)</p></li><li><p>可以从手机/其他设备直接在线播放视频</p><p>（毕竟谁不想躺在床上以一个舒服的姿势看无损的资源呢）</p></li></ol><p>所以说干就干吧，正好我的两个硬盘都满了</p><p><img src="https://s2.loli.net/2024/03/18/8TmY9xoApQvqftC.png" class="lazyload" data-srcset="https://s2.loli.net/2024/03/18/8TmY9xoApQvqftC.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240318111144919"></p><p>最近也在犹豫是不是在搞一个16T的硬盘，然后把这两个硬盘里的数据拷贝到新硬盘里，然后重新整理，把这两个硬盘做一个RAID0，变成8T的硬盘。脑子里最近一直在打算这个事。</p><p>其次我的PT做种也做了不少了，在RS上也算可以说是大佬了哈哈，毕竟是第一个达成NEXUX MASTER的啦 哈哈，小小傲娇一下</p><p><img src="https://s2.loli.net/2024/03/18/wuVOHqpKlMA2Lo6.png" class="lazyload" data-srcset="https://s2.loli.net/2024/03/18/wuVOHqpKlMA2Lo6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240318111706010"></p><img src="https://s2.loli.net/2024/03/18/yJKYR75jAvkxsSB.png" class="lazyload" data-srcset="https://s2.loli.net/2024/03/18/yJKYR75jAvkxsSB.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240318111632133" style="zoom:33%;" /><p>其实很简单用的是 <strong>Jellyfin</strong>,  简单搜了相关教程，配置jellyfin-Windows版本后</p><p>设置对应路径和相关，和相关插件后，大体的效果如下：</p><p><img src="https://s2.loli.net/2024/03/18/WgrRhbxutipQ8VS.jpg" class="lazyload" data-srcset="https://s2.loli.net/2024/03/18/WgrRhbxutipQ8VS.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240318120515089"></p><p><img src="https://s2.loli.net/2024/03/18/P9zkFh3MinEJW2g.jpg" class="lazyload" data-srcset="https://s2.loli.net/2024/03/18/P9zkFh3MinEJW2g.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240318120725335"></p><p>播放的话， 也是可以直接播放的，</p><p>本地直接调用potplayer进行播放，远程的话 通过在线播放</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 媒体库 </tag>
+            
+            <tag> 流媒体 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cmake 使用过程中的一些记录</title>
       <link href="/posts/a49ee1f7/"/>
       <url>/posts/a49ee1f7/</url>
