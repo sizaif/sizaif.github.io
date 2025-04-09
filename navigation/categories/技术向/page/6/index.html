@@ -23,7 +23,7 @@
   <!--google sitemap 验证-->
   <meta name="google-site-verification" content="2ch5e58GE7KkV0c1-Cc2VtH4jR8sGEuT8xtD6ou6Un8" />
   <meta name="baidu-site-verification" content="code-fyaVc6pxBp" />
-  <link rel="preload" href="/css/style.css?time=1740483076958" as="style">
+  <link rel="preload" href="/css/style.css?time=1744169827919" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/inkss/common@1/fonts/canva/SentyGoldenBell.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/sizaif/blog-cdn@main/fonts/hytmr55.woff" as="font" type="font/woff" crossorigin="anonymous">
 
@@ -1813,8 +1813,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1740483076958" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1740483076958"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1744169827919" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1744169827919"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
@@ -2546,6 +2546,74 @@ ul.list-v >li>a:hover {
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://www.sizaif.com/posts/373ab937/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Sizaif's Blog">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/posts/373ab937/"  itemprop="url">
+        PicGo + Gitee(码云)实现markdown图床
+      </a>
+    </h2>
+  
+  <div class='md' itemprop="articleBody">
+    
+      
+        
+@auther by sizaif
+
+转载https://www.jianshu.com/p/b69950a49ae2
+
+
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2021-08-12T10:27:37+08:00">2021-08-12</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a><span class="sep"></span><a class="category-link" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/%E5%9B%BE%E5%BA%8A/">图床</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/" itemprop="url"><span itemprop="name">技术向</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/%E5%9B%BE%E5%BA%8A/" itemprop="url"><span itemprop="name">图床</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/posts/373ab937/' itemprop="url">
+            <i class="fal fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="https://www.sizaif.com/posts/6c15e2cc/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Sizaif's Blog">
@@ -3232,86 +3300,6 @@ typedef struct link&#123;
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://www.sizaif.com/posts/c1919217/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Sizaif's Blog">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/posts/c1919217/"  itemprop="url">
-        循环右移K位问题的思考，几种方法的解决
-      </a>
-    </h2>
-  
-  <div class='md' itemprop="articleBody">
-    
-      
-        
-@auther by sizaif
-
-循环右移K位问题
-@TOC
-试用顺序存储结构设计一个算法，仅用一个辅助结点，实现将线性表中的结点循环右移k位的运算，并分析，算法的时间复杂度．
-方法一: mod移位思想
-
-													图一：
-
-/**
- * 思路: 
- * 运用mod的思想, 将n复制成2n的数组 如图一所示; 那么循环有移 逃不出2n内
- * 右移后的结果为： (i+k...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-08-11T22:01:57+08:00">2021-08-11</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a><span class="sep"></span><a class="category-link" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/C/">C++</a><span class="sep"></span><a class="category-link" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/%E7%AE%97%E6%B3%95/">算法</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/" itemprop="url"><span itemprop="name">技术向</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/%E7%AE%97%E6%B3%95/" itemprop="url"><span itemprop="name">算法</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/C/" itemprop="url"><span itemprop="name">C++</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/posts/c1919217/' itemprop="url">
-            <i class="fal fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3524,7 +3512,7 @@ typedef struct link&#123;
           <li><a class="flat-box"
             title="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/"
             active-action="action-navigationcategoriesE68A80E69CAFE59091"
-            ><div class='name'>技术向</div><div class='badge'>(96)</div></a></li>
+            ><div class='name'>技术向</div><div class='badge'>(97)</div></a></li>
         
           <li><a class="flat-box child"
             title="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Azure/" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Azure/"
@@ -3579,7 +3567,7 @@ typedef struct link&#123;
           <li><a class="flat-box child"
             title="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Linux/" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Linux/"
             active-action="action-navigationcategoriesE68A80E69CAFE59091Linux"
-            ><div class='name'>Linux</div><div class='badge'>(13)</div></a></li>
+            ><div class='name'>Linux</div><div class='badge'>(14)</div></a></li>
         
           <li><a class="flat-box child"
             title="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Microsoft-SEAL/" href="/navigation/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Microsoft-SEAL/"
@@ -3738,7 +3726,7 @@ typedef struct link&#123;
 
 
     <div class='content'>
-      <a href="/tags/3090ti/" style="font-size: 14px; color: #999">3090ti</a> <a href="/tags/5G/" style="font-size: 16.5px; color: #888">5G</a> <a href="/tags/AFL/" style="font-size: 17.75px; color: #808080">AFL</a> <a href="/tags/ASN-1/" style="font-size: 14px; color: #999">ASN.1</a> <a href="/tags/Azure/" style="font-size: 16.5px; color: #888">Azure</a> <a href="/tags/Azure-AD/" style="font-size: 14px; color: #999">Azure AD</a> <a href="/tags/Binutils/" style="font-size: 14px; color: #999">Binutils</a> <a href="/tags/C/" style="font-size: 22.75px; color: #5e5e5e">C++</a> <a href="/tags/C-C/" style="font-size: 14px; color: #999">C/C++</a> <a href="/tags/Clash/" style="font-size: 14px; color: #999">Clash</a> <a href="/tags/Cmake/" style="font-size: 14px; color: #999">Cmake</a> <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/DPI/" style="font-size: 14px; color: #999">DPI</a> <a href="/tags/Docker/" style="font-size: 22.75px; color: #5e5e5e">Docker</a> <a href="/tags/ECDHE/" style="font-size: 14px; color: #999">ECDHE</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Gitee/" style="font-size: 14px; color: #999">Gitee</a> <a href="/tags/GnuTLS/" style="font-size: 16.5px; color: #888">GnuTLS</a> <a href="/tags/HexStream/" style="font-size: 14px; color: #999">HexStream</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Hyper-v/" style="font-size: 14px; color: #999">Hyper-v</a> <a href="/tags/IDEA/" style="font-size: 14px; color: #999">IDEA</a> <a href="/tags/JAXB/" style="font-size: 14px; color: #999">JAXB</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Jdk/" style="font-size: 14px; color: #999">Jdk</a> <a href="/tags/Js/" style="font-size: 15.25px; color: #919191">Js</a> <a href="/tags/LLVM/" style="font-size: 21.5px; color: #666">LLVM</a> <a href="/tags/LTE/" style="font-size: 21.5px; color: #666">LTE</a> <a href="/tags/Layui/" style="font-size: 15.25px; color: #919191">Layui</a> <a href="/tags/Linux/" style="font-size: 20.25px; color: #6f6f6f">Linux</a> <a href="/tags/Master/" style="font-size: 15.25px; color: #919191">Master</a> <a href="/tags/Mybatis/" style="font-size: 17.75px; color: #808080">Mybatis</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #999">Mysql</a> <a href="/tags/OAuth2-0/" style="font-size: 14px; color: #999">OAuth2.0</a> <a href="/tags/OIDC/" style="font-size: 14px; color: #999">OIDC</a> <a href="/tags/OpenCV/" style="font-size: 16.5px; color: #888">OpenCV</a> <a href="/tags/OpenSSL/" style="font-size: 20.25px; color: #6f6f6f">OpenSSL</a> <a href="/tags/Pcap/" style="font-size: 14px; color: #999">Pcap</a> <a href="/tags/PicGo/" style="font-size: 14px; color: #999">PicGo</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Rust/" style="font-size: 14px; color: #999">Rust</a> <a href="/tags/SSL/" style="font-size: 20.25px; color: #6f6f6f">SSL</a> <a href="/tags/Seal/" style="font-size: 21.5px; color: #666">Seal</a> <a href="/tags/Springboot/" style="font-size: 16.5px; color: #888">Springboot</a> <a href="/tags/TLS/" style="font-size: 14px; color: #999">TLS</a> <a href="/tags/TSW2/" style="font-size: 14px; color: #999">TSW2</a> <a href="/tags/Tensorflow/" style="font-size: 20.25px; color: #6f6f6f">Tensorflow</a> <a href="/tags/USIM/" style="font-size: 14px; color: #999">USIM</a> <a href="/tags/VS2019/" style="font-size: 14px; color: #999">VS2019</a> <a href="/tags/VxWorks/" style="font-size: 14px; color: #999">VxWorks</a> <a href="/tags/Waline/" style="font-size: 14px; color: #999">Waline</a> <a href="/tags/Win/" style="font-size: 16.5px; color: #888">Win</a> <a href="/tags/Wireshark/" style="font-size: 14px; color: #999">Wireshark</a> <a href="/tags/WolfSSL/" style="font-size: 14px; color: #999">WolfSSL</a> <a href="/tags/WorkBebch/" style="font-size: 14px; color: #999">WorkBebch</a> <a href="/tags/X509%E8%AF%81%E4%B9%A6%E8%A7%A3%E6%9E%90/" style="font-size: 14px; color: #999">X509证书解析</a> <a href="/tags/Xml/" style="font-size: 14px; color: #999">Xml</a> <a href="/tags/object-Object/" style="font-size: 14px; color: #999">[object Object]</a> <a href="/tags/docker/" style="font-size: 15.25px; color: #919191">docker</a> <a href="/tags/execv/" style="font-size: 14px; color: #999">execv</a> <a href="/tags/fastboot/" style="font-size: 15.25px; color: #919191">fastboot</a> <a href="/tags/fuzzing/" style="font-size: 24px; color: #555">fuzzing</a> <a href="/tags/github%E8%AE%A1%E5%88%92/" style="font-size: 14px; color: #999">github计划</a> <a href="/tags/idea/" style="font-size: 14px; color: #999">idea</a> <a href="/tags/linux/" style="font-size: 15.25px; color: #919191">linux</a> <a href="/tags/make/" style="font-size: 14px; color: #999">make</a> <a href="/tags/miflash-unlock/" style="font-size: 15.25px; color: #919191">miflash unlock</a> <a href="/tags/python/" style="font-size: 15.25px; color: #919191">python</a> <a href="/tags/rust/" style="font-size: 16.5px; color: #888">rust</a> <a href="/tags/soap/" style="font-size: 14px; color: #999">soap</a> <a href="/tags/typora/" style="font-size: 14px; color: #999">typora</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #999">ubuntu</a> <a href="/tags/void/" style="font-size: 14px; color: #999">void*</a> <a href="/tags/vscode/" style="font-size: 14px; color: #999">vscode</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">二进制</a> <a href="/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/" style="font-size: 21.5px; color: #666">同态加密</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%A4%96%E7%BD%AE%E6%98%BE%E5%8D%A1%E5%9D%9E/" style="font-size: 14px; color: #999">外置显卡坞</a> <a href="/tags/%E5%AA%92%E4%BD%93%E5%BA%93/" style="font-size: 14px; color: #999">媒体库</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.75px; color: #808080">学习笔记</a> <a href="/tags/%E5%AF%86%E9%92%A5%E5%8D%8F%E5%95%86/" style="font-size: 14px; color: #999">密钥协商</a> <a href="/tags/%E5%BE%AE%E8%BD%AF/" style="font-size: 15.25px; color: #919191">微软</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 14px; color: #999">性能测试</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E5%90%91/" style="font-size: 19px; color: #777">技术向</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.25px; color: #919191">教程</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 20.25px; color: #6f6f6f">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">杂谈</a> <a href="/tags/%E6%A0%87%E7%AD%BE%E4%BA%8C/" style="font-size: 15.25px; color: #919191">标签二</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a> <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 14px; color: #999">流媒体</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 21.5px; color: #666">笔记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.5px; color: #888">算法</a> <a href="/tags/%E7%AE%A1%E9%81%93/" style="font-size: 14px; color: #999">管道</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 17.75px; color: #808080">网站</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/" style="font-size: 14px; color: #999">脚本格式</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 19px; color: #777">论文</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 15.25px; color: #919191">路由器</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 16.5px; color: #888">通信</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 15.25px; color: #919191">驱动</a>
+      <a href="/tags/3090ti/" style="font-size: 14px; color: #999">3090ti</a> <a href="/tags/5G/" style="font-size: 16.5px; color: #888">5G</a> <a href="/tags/AFL/" style="font-size: 17.75px; color: #808080">AFL</a> <a href="/tags/ASN-1/" style="font-size: 14px; color: #999">ASN.1</a> <a href="/tags/Azure/" style="font-size: 16.5px; color: #888">Azure</a> <a href="/tags/Azure-AD/" style="font-size: 14px; color: #999">Azure AD</a> <a href="/tags/Binutils/" style="font-size: 14px; color: #999">Binutils</a> <a href="/tags/C/" style="font-size: 22.75px; color: #5e5e5e">C++</a> <a href="/tags/C-C/" style="font-size: 14px; color: #999">C/C++</a> <a href="/tags/Clash/" style="font-size: 14px; color: #999">Clash</a> <a href="/tags/Cmake/" style="font-size: 14px; color: #999">Cmake</a> <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/DPI/" style="font-size: 14px; color: #999">DPI</a> <a href="/tags/Docker/" style="font-size: 22.75px; color: #5e5e5e">Docker</a> <a href="/tags/ECDHE/" style="font-size: 14px; color: #999">ECDHE</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Gitee/" style="font-size: 14px; color: #999">Gitee</a> <a href="/tags/GnuTLS/" style="font-size: 16.5px; color: #888">GnuTLS</a> <a href="/tags/HexStream/" style="font-size: 14px; color: #999">HexStream</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Hyper-v/" style="font-size: 14px; color: #999">Hyper-v</a> <a href="/tags/IDEA/" style="font-size: 14px; color: #999">IDEA</a> <a href="/tags/JAXB/" style="font-size: 14px; color: #999">JAXB</a> <a href="/tags/Java/" style="font-size: 24px; color: #555">Java</a> <a href="/tags/Jdk/" style="font-size: 14px; color: #999">Jdk</a> <a href="/tags/Js/" style="font-size: 15.25px; color: #919191">Js</a> <a href="/tags/LLVM/" style="font-size: 21.5px; color: #666">LLVM</a> <a href="/tags/LTE/" style="font-size: 21.5px; color: #666">LTE</a> <a href="/tags/Layui/" style="font-size: 15.25px; color: #919191">Layui</a> <a href="/tags/Linux/" style="font-size: 21.5px; color: #666">Linux</a> <a href="/tags/Master/" style="font-size: 15.25px; color: #919191">Master</a> <a href="/tags/Mybatis/" style="font-size: 17.75px; color: #808080">Mybatis</a> <a href="/tags/Mysql/" style="font-size: 14px; color: #999">Mysql</a> <a href="/tags/OAuth2-0/" style="font-size: 14px; color: #999">OAuth2.0</a> <a href="/tags/OIDC/" style="font-size: 14px; color: #999">OIDC</a> <a href="/tags/OpenCV/" style="font-size: 16.5px; color: #888">OpenCV</a> <a href="/tags/OpenSSL/" style="font-size: 20.25px; color: #6f6f6f">OpenSSL</a> <a href="/tags/Pcap/" style="font-size: 14px; color: #999">Pcap</a> <a href="/tags/PicGo/" style="font-size: 14px; color: #999">PicGo</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Rust/" style="font-size: 14px; color: #999">Rust</a> <a href="/tags/SSL/" style="font-size: 20.25px; color: #6f6f6f">SSL</a> <a href="/tags/Seal/" style="font-size: 21.5px; color: #666">Seal</a> <a href="/tags/Springboot/" style="font-size: 16.5px; color: #888">Springboot</a> <a href="/tags/TLS/" style="font-size: 14px; color: #999">TLS</a> <a href="/tags/TSW2/" style="font-size: 14px; color: #999">TSW2</a> <a href="/tags/Tensorflow/" style="font-size: 20.25px; color: #6f6f6f">Tensorflow</a> <a href="/tags/USIM/" style="font-size: 14px; color: #999">USIM</a> <a href="/tags/VS2019/" style="font-size: 14px; color: #999">VS2019</a> <a href="/tags/VxWorks/" style="font-size: 14px; color: #999">VxWorks</a> <a href="/tags/Waline/" style="font-size: 14px; color: #999">Waline</a> <a href="/tags/Win/" style="font-size: 16.5px; color: #888">Win</a> <a href="/tags/Wireshark/" style="font-size: 14px; color: #999">Wireshark</a> <a href="/tags/WolfSSL/" style="font-size: 14px; color: #999">WolfSSL</a> <a href="/tags/WorkBebch/" style="font-size: 14px; color: #999">WorkBebch</a> <a href="/tags/X509%E8%AF%81%E4%B9%A6%E8%A7%A3%E6%9E%90/" style="font-size: 14px; color: #999">X509证书解析</a> <a href="/tags/Xml/" style="font-size: 14px; color: #999">Xml</a> <a href="/tags/object-Object/" style="font-size: 14px; color: #999">[object Object]</a> <a href="/tags/docker/" style="font-size: 15.25px; color: #919191">docker</a> <a href="/tags/execv/" style="font-size: 14px; color: #999">execv</a> <a href="/tags/fastboot/" style="font-size: 15.25px; color: #919191">fastboot</a> <a href="/tags/fuzzing/" style="font-size: 24px; color: #555">fuzzing</a> <a href="/tags/github%E8%AE%A1%E5%88%92/" style="font-size: 14px; color: #999">github计划</a> <a href="/tags/idea/" style="font-size: 14px; color: #999">idea</a> <a href="/tags/linux/" style="font-size: 15.25px; color: #919191">linux</a> <a href="/tags/make/" style="font-size: 14px; color: #999">make</a> <a href="/tags/miflash-unlock/" style="font-size: 15.25px; color: #919191">miflash unlock</a> <a href="/tags/python/" style="font-size: 15.25px; color: #919191">python</a> <a href="/tags/rust/" style="font-size: 16.5px; color: #888">rust</a> <a href="/tags/soap/" style="font-size: 14px; color: #999">soap</a> <a href="/tags/typora/" style="font-size: 14px; color: #999">typora</a> <a href="/tags/ubuntu/" style="font-size: 14px; color: #999">ubuntu</a> <a href="/tags/void/" style="font-size: 14px; color: #999">void*</a> <a href="/tags/vscode/" style="font-size: 14px; color: #999">vscode</a> <a href="/tags/%E4%BA%8C%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">二进制</a> <a href="/tags/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/" style="font-size: 21.5px; color: #666">同态加密</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%A4%96%E7%BD%AE%E6%98%BE%E5%8D%A1%E5%9D%9E/" style="font-size: 14px; color: #999">外置显卡坞</a> <a href="/tags/%E5%A4%9A%E4%BC%9A%E8%AF%9D/" style="font-size: 14px; color: #999">多会话</a> <a href="/tags/%E5%AA%92%E4%BD%93%E5%BA%93/" style="font-size: 14px; color: #999">媒体库</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 17.75px; color: #808080">学习笔记</a> <a href="/tags/%E5%AF%86%E9%92%A5%E5%8D%8F%E5%95%86/" style="font-size: 14px; color: #999">密钥协商</a> <a href="/tags/%E5%BE%AE%E8%BD%AF/" style="font-size: 15.25px; color: #919191">微软</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 14px; color: #999">性能测试</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E5%90%91/" style="font-size: 19px; color: #777">技术向</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 15.25px; color: #919191">教程</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 20.25px; color: #6f6f6f">机器学习</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">杂谈</a> <a href="/tags/%E6%A0%87%E7%AD%BE%E4%BA%8C/" style="font-size: 15.25px; color: #919191">标签二</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 14px; color: #999">汇编</a> <a href="/tags/%E6%B5%81%E5%AA%92%E4%BD%93/" style="font-size: 14px; color: #999">流媒体</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 21.5px; color: #666">笔记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 16.5px; color: #888">算法</a> <a href="/tags/%E7%AE%A1%E9%81%93/" style="font-size: 14px; color: #999">管道</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 17.75px; color: #808080">网站</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F/" style="font-size: 14px; color: #999">脚本格式</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 19px; color: #777">论文</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 15.25px; color: #919191">路由器</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 16.5px; color: #888">通信</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 15.25px; color: #919191">驱动</a>
     </div>
   </section>
 
@@ -3763,7 +3751,7 @@ typedef struct link&#123;
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>120 篇</div>
+          <div>121 篇</div>
         </div>
       
 
@@ -3785,7 +3773,7 @@ typedef struct link&#123;
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>177.8k 字</div>
+          <div>179.3k 字</div>
         </div>
       
 
@@ -3811,8 +3799,8 @@ typedef struct link&#123;
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Feb 25 2025 19:31:06 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2025-02-25 日</div>
+            <div id="last-update" style="display: none;">Wed Apr 09 2025 11:36:58 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2025-04-09 日</div>
           
         </div>
         
@@ -3862,7 +3850,7 @@ typedef struct link&#123;
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2025-02-25 日';
+            document.getElementById('last-update-show').innerHTML = '2025-04-09 日';
           }
         </script>
         
@@ -3888,7 +3876,7 @@ typedef struct link&#123;
 
  
   <div class='content'> 
-    <ul class="list entry navigation"><li><a class="widget-last" href="/posts/e4b5eda/"><div class="item"><time>2025-02-25</time><span>技术向</span></div><span>Vxworks环境与程序验证</span></a></li><li><a class="widget-last" href="/posts/74e6b323/"><div class="item"><time>2025-02-25</time></div><span>搭建影视库试试手</span></a></li><li><a class="widget-last" href="/posts/b2230133/"><div class="item"><time>2025-02-21</time><span>技术向</span></div><span>AES_CBC块加密实现踩坑记录</span></a></li><li><a class="widget-last" href="/posts/1e2fb27c/"><div class="item"><time>2025-02-21</time><span>技术向</span></div><span>Openssl X509证书从HexStream中解析</span></a></li><li><a class="widget-last" href="/posts/a49ee1f7/"><div class="item"><time>2024-03-28</time><span>技术向</span></div><span>Cmake 使用过程中的一些记录</span></a></li></ul> 
+    <ul class="list entry navigation"><li><a class="widget-last" href="/posts/443563e5/"><div class="item"><time>2025-04-09</time><span>技术向</span></div><span>Screen用法学习</span></a></li><li><a class="widget-last" href="/posts/e4b5eda/"><div class="item"><time>2025-02-25</time><span>技术向</span></div><span>Vxworks环境与程序验证</span></a></li><li><a class="widget-last" href="/posts/74e6b323/"><div class="item"><time>2025-02-25</time></div><span>搭建影视库试试手</span></a></li><li><a class="widget-last" href="/posts/b2230133/"><div class="item"><time>2025-02-21</time><span>技术向</span></div><span>AES_CBC块加密实现踩坑记录</span></a></li><li><a class="widget-last" href="/posts/1e2fb27c/"><div class="item"><time>2025-02-21</time><span>技术向</span></div><span>Openssl X509证书从HexStream中解析</span></a></li></ul> 
   </div> 
 </section> 
 
@@ -4417,8 +4405,8 @@ typedef struct link&#123;
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1740483076958')
-      volantis.js('/js/message.js?time=1740483076958', () => {
+      volantis.css('/css/message.css?time=1744169827919')
+      volantis.js('/js/message.js?time=1744169827919', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -4463,8 +4451,8 @@ typedef struct link&#123;
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1740483076958')
-      volantis.js('/js/message.js?time=1740483076958', () => {
+      volantis.css('/css/message.css?time=1744169827919')
+      volantis.js('/js/message.js?time=1744169827919', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -4523,8 +4511,8 @@ typedef struct link&#123;
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1740483076958')
-      volantis.js('/js/message.js?time=1740483076958', () => {
+      volantis.css('/css/message.css?time=1744169827919')
+      volantis.js('/js/message.js?time=1744169827919', () => {
         hideMessage(done);
       });
     } else {
@@ -4738,7 +4726,7 @@ typedef struct link&#123;
     
     
     
-    volantis.js('/js/rightMenu.js?time=1740483076958');
+    volantis.js('/js/rightMenu.js?time=1744169827919');
     }
   </script>
 
@@ -4853,13 +4841,13 @@ volantis.pjax.push(bindToggleButton);
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1740483076958")
+        volantis.js("/js/plugins/friends.js?time=1744169827919")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1740483076958")
+        volantis.js("/js/plugins/contributors.js?time=1744169827919")
       }
     
   };
@@ -4931,7 +4919,7 @@ volantis.pjax.push(bindToggleButton);
     await volantis.js("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
   
     // 右键 music 需要在 APlayer  MetingJS 之后加载
-    await volantis.js('/js/aplayer.js?time=1740483076959')
+    await volantis.js('/js/aplayer.js?time=1744169827920')
     volantis.APlayerController.music = true;
   
   })();
@@ -5047,7 +5035,7 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1740483076958.js"></script>
+<script src="/js/app.js?time=1744169827919.js"></script>
 
 
 <!-- optional -->
@@ -5060,7 +5048,7 @@ volantis.pjax.push(bindToggleButton);
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1740483076958");
+    return volantis.js("/js/search/hexo.js?time=1744169827919");
   }
 
   function loadSearchService() {
